@@ -1,11 +1,9 @@
-import 'dart:math';
-
 import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextColor.dart';
 import 'package:app/models/text/TextSize.dart';
+import 'package:flutter/material.dart';
 
 import '../../models/text/TextType.dart';
-import 'package:flutter/material.dart';
 
 class StyledText extends StatelessWidget {
   final TextType type;
@@ -13,17 +11,18 @@ class StyledText extends StatelessWidget {
   final TextColor color;
   final FontWeight fontWeight;
   final FontFamily fontFamily;
+  final TextDecoration textDecoration;
   final String text;
   final int maxLines;
 
   StyledText(
-
     this.text, {
     this.type = TextType.body,
     this.size = TextSize.normal,
     this.color = TextColor.primary,
     this.fontWeight = FontWeight.normal,
     this.fontFamily = FontFamily.body,
+    this.textDecoration = TextDecoration.none,
     this.maxLines,
     Key key,
   }) : super(key : key);
@@ -45,6 +44,7 @@ class StyledText extends StatelessWidget {
           fontSize: _tSize,
           color: color.toColor,
           fontWeight: fontWeight,
+          decoration: textDecoration,
           fontFamily: _fFamily),
     );
   }

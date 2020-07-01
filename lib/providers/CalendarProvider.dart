@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 
+import '../utils/extensions/is_same_date_extension.dart';
+
 /// Mix-in [DiagnosticableTreeMixin] to have access to [debugFillProperties] for the devtool
 class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
   DateTime _selectedDate = DateTime.now();
@@ -9,6 +11,7 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
   DateTime get selectedDate => _selectedDate;
   DateTime get endDate => _endDate;
   DateTime get startDate => _startDate;
+  bool get isSelectedDateToday => _selectedDate.isSameDate(DateTime.now());
 
   List<DateTime> markedDates = [
     DateTime.now().subtract(Duration(days: 1)),

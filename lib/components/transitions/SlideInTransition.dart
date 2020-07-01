@@ -16,6 +16,7 @@ class SlideInTransition extends StatefulWidget {
 class SlideInTransitionState extends State<SlideInTransition> with TickerProviderStateMixin {
   AnimationController _animController;
   Animation<Offset> _animOffset;
+  bool _disposed = false;
 
   @override
   void initState() {
@@ -24,13 +25,12 @@ class SlideInTransitionState extends State<SlideInTransition> with TickerProvide
     _animController = AnimationController(vsync: this, duration: Duration(milliseconds: 400));
     final _curve = CurvedAnimation(curve: widget.curve != null ? widget.curve : Curves.decelerate, parent: _animController);
     _animOffset = Tween<Offset>(begin: widget.offset, end: Offset.zero).animate(_curve);
-
     if (widget.delay == null) {
       _animController.forward();
     } else {
       _animController.reset();
       Future.delayed(Duration(milliseconds: widget.delay), () {
-        _animController.forward();
+        if(!_disposed) _animController.forward();
       });
     }
   }
@@ -41,15 +41,16 @@ class SlideInTransitionState extends State<SlideInTransition> with TickerProvide
     if (widget.id != oldWidget.id) {
       _animController.reset();
       Future.delayed(Duration(milliseconds: widget.delay), () {
-        _animController.forward();
+        if(!_disposed) _animController.forward();
       });
     }
   }
 
   @override
   void dispose() {
-    super.dispose();
+    _disposed = true;
     _animController.dispose();
+    super.dispose();
   }
 
   @override

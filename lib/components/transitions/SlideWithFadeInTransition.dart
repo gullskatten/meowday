@@ -16,6 +16,7 @@ class SlideWithFadeInTransition extends StatefulWidget {
 class SlideWithFadeInTransitionState extends State<SlideWithFadeInTransition> with TickerProviderStateMixin {
   AnimationController _animController;
   Animation<Offset> _animOffset;
+  bool _disposed = false;
 
   @override
   void initState() {
@@ -30,7 +31,7 @@ class SlideWithFadeInTransitionState extends State<SlideWithFadeInTransition> wi
     } else {
       _animController.reset();
       Future.delayed(Duration(milliseconds: widget.delay), () {
-        _animController.forward();
+       if(!_disposed) _animController.forward();
       });
     }
   }
@@ -41,15 +42,16 @@ class SlideWithFadeInTransitionState extends State<SlideWithFadeInTransition> wi
     if (widget.id != oldWidget.id) {
       _animController.reset();
       Future.delayed(Duration(milliseconds: widget.delay), () {
-        _animController.forward();
+        if(!_disposed) _animController.forward();
       });
     }
   }
 
   @override
   void dispose() {
-    super.dispose();
+    _disposed = true;
     _animController.dispose();
+    super.dispose();
   }
 
   @override

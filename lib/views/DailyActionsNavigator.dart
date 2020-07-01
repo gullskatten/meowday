@@ -31,7 +31,6 @@ class DailyActionsNavigator extends StatelessWidget {
               }
           ),
           SizedBox(width: 15.0,),
-
           OpaqueIconButton(
               label: 'Plans',
               icon: Icons.fitness_center,
