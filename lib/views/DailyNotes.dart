@@ -23,28 +23,12 @@ class DailyNotes extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          TyperAnimatedTextKit(
-            key: Key(context.select((CalendarProvider value) => value.selectedDate.month.toString())),
-            text: [
-              DateFormat("MMMM yyyy")
-                  .format(context.select((CalendarProvider value) => value.selectedDate))
-            ],
-            isRepeatingAnimation: false,
-            speed: Duration(milliseconds: 75),
-            textStyle: TextStyle(
-              fontSize: kBodyNormal,
-              fontFamily: FontFamily.title.family,
-              fontWeight: FontWeight.w200,
-              color: TextColor.primary60.toColor,
-            ),
-          ),
           Align(
             alignment: Alignment.centerLeft,
             child: SizedBox(
               width: double.infinity,
               child: StyledText(
-                DateFormat("EEEE, d.")
-                    .format(context.watch<CalendarProvider>().selectedDate),
+                'Notes',
                 type: TextType.title,
                 fontWeight: FontWeight.w200,
               ),
@@ -61,7 +45,7 @@ class DailyNotes extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: OpaqueIconButton(
-                    label: 'Edit todays note',
+                    label: 'Edit note',
                     icon: Icons.edit,
                     onPressed: () {
                     }),

@@ -10,9 +10,11 @@ import 'package:app/utils/custom_icons_icons.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class OverallExperience extends StatelessWidget {
+import '../constants/colors/boxes.dart';
+import '../constants/colors/boxes.dart';
 
-  final double percent = 78.3;
+class OverallExperience extends StatelessWidget {
+  final double percent = 55.3;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +28,17 @@ class OverallExperience extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: <Widget>[
-                ExperienceBar(percent: percent > 100 ? 100.0 : percent,),
+                ExperienceBar(
+                  percent: percent > 100 ? 100.0 : percent,
+                ),
                 AnimatedSwitcher(
                   duration: Duration(milliseconds: 200),
                   transitionBuilder: (widget, animation) {
-                    return FadeTransition(child: widget, opacity: animation, key: Key(percent.toStringAsFixed(1)),);
+                    return FadeTransition(
+                      child: widget,
+                      opacity: animation,
+                      key: Key(percent.toStringAsFixed(1)),
+                    );
                   },
                   child: StyledText(
                     '${percent > 100.0 ? 100 : percent.toStringAsFixed(1)} %',
@@ -38,7 +46,8 @@ class OverallExperience extends StatelessWidget {
                     size: TextSize.smaller,
                     fontFamily: FontFamily.title,
                     fontWeight: FontWeight.bold,
-                    color: percent > 45 ? TextColor.tertiary : TextColor.primary,
+                    color:
+                        percent > 45 ? TextColor.tertiary : TextColor.primary,
                   ),
                 ),
               ],

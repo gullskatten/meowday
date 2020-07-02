@@ -1,10 +1,12 @@
+import 'package:app/components/calendar/CalendarStrip.dart';
 import 'package:app/components/calendar/DateTile.dart';
 import 'package:app/components/calendar/MonthName.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/providers/CalendarProvider.dart';
-import 'package:calendar_strip/calendar_strip.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../providers/CalendarProvider.dart';
 
 class Calendar extends StatelessWidget {
   const Calendar({Key key}) : super(key: key);
@@ -12,6 +14,7 @@ class Calendar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CalendarStrip(
+      selectedDate: context.watch<CalendarProvider>().selectedDate,
       startDate: context.select((CalendarProvider value) => value.startDate),
       endDate: context.select((CalendarProvider value) => value.endDate),
       onDateSelected: (newDate) =>
@@ -35,7 +38,7 @@ class Calendar extends StatelessWidget {
         end: Alignment.bottomCenter,
         colors: const <Color>[
           orange,
-          kSectionPrimaryColor,
+          orange,
         ],
         stops: const <double>[0.6, 1.0],
       )),
