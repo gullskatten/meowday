@@ -16,6 +16,10 @@
 ///         Author:    P.J. Onori
 ///         License:   SIL (http://scripts.sil.org/OFL)
 ///         Homepage:  http://somerandomdude.com/work/iconic/
+/// * RPG Awesome, Copyright (c) 2014, Daniela Howe
+///         Author:    Daniela Howe & Ivan Montiel
+///         License:   SIL (http://scripts.sil.org/OFL)
+///         Homepage:  http://nagoshiashumari.github.io/Rpg-Awesome/
 /// * Font Awesome 5, Copyright (C) 2016 by Dave Gandy
 ///         Author:    Dave Gandy
 ///         License:   SIL (https://github.com/FortAwesome/Font-Awesome/blob/master/LICENSE.txt)
@@ -30,5 +34,13 @@ class CustomIcons {
   static const _kFontPkg = null;
 
   static const IconData award_empty = IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData beer = IconData(0xe92a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData cat = IconData(0xe95f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData coffee_mug = IconData(0xe96e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData scroll_unfurled = IconData(0xea8f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData seagull = IconData(0xea92, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData super_mushroom = IconData(0xeabf, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData tentacle = IconData(0xeac8, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData trophy = IconData(0xf091, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData carrot = IconData(0xf787, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

@@ -8,12 +8,8 @@ import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextType.dart';
 import 'package:flutter/material.dart';
 
-class ChallengesScreen extends StatefulWidget {
-  @override
-  _ChallengesScreenState createState() => _ChallengesScreenState();
-}
-
-class _ChallengesScreenState extends State<ChallengesScreen> {
+class ChallengesScreen extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,6 +1,7 @@
 import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/constants/text/text_styles.dart';
+import 'package:app/models/challenge/Challenge.dart';
 import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextColor.dart';
 import 'package:app/models/text/TextSize.dart';
@@ -19,27 +20,31 @@ class ChallengeItem extends StatelessWidget {
       this.onTap,
       @required this.item})
       : assert(animation != null),
-        assert(item != null && item >= 0),
+        assert(item != null),
         super(key: key);
 
   final Animation<double> animation;
   final VoidCallback onTap;
-  final int item;
+  final Challenge item;
 
   @override
   Widget build(BuildContext context) {
+
+    print(item.color);
+
     return SlideTransition(
       position: animation.drive(
           Tween(begin: Offset(2, 0.0), end: Offset(0, 0))
               .chain(CurveTween(curve: Curves.easeInOut))),
       child: Container(
-        padding: EdgeInsets.all(kSpacingNormal),
+        padding: EdgeInsets.all(kSpacingSmall),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Container(
+              padding: EdgeInsets.all(kSpacingNormal),
               decoration: BoxDecoration(
-                  color: Colors.brown,
+                  color: item.color,
                   borderRadius: BorderRadius.all(Radius.circular(5.0)),
                   boxShadow: [
                     BoxShadow(
@@ -71,7 +76,7 @@ class ChallengeItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Icon(
-                      Icons.fitness_center,
+                      item.icon,
                       size: kSubtitleNormal,
                       color: Colors.white60,
                     ),
@@ -79,7 +84,7 @@ class ChallengeItem extends StatelessWidget {
                       height: kSpacingTiny,
                     ),
                     StyledText(
-                      '250 xp',
+                      '${item.experiencePoints} xp',
                       size: TextSize.smaller,
                       color: TextColor.primary60,
                       fontFamily: FontFamily.title,
@@ -87,11 +92,11 @@ class ChallengeItem extends StatelessWidget {
                   ],
                 ),
                 title: StyledText(
-                  'Keep the wheels going.',
+                  item.title,
                   fontWeight: FontWeight.bold,
                 ),
                 subtitle: StyledText(
-                  'Do 10 push-ups.',
+                  item.description,
                   fontWeight: FontWeight.bold,
                   size: TextSize.smaller,
                   color: TextColor.primary60,

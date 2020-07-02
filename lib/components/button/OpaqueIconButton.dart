@@ -39,7 +39,7 @@ class OpaqueIconButton extends StatelessWidget {
           ,
         ],
       ),
-      onPressed: () {},
+      onPressed: onPressed,
       textColor: Colors.white,
       color: Colors.white10,
       shape: OutlineInputBorder(

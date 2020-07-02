@@ -1,5 +1,8 @@
 import 'package:app/components/challenges/ChallengeItem.dart';
 import 'package:app/components/list/ListHandler.dart';
+import 'package:app/constants/colors/boxes.dart';
+import 'package:app/models/challenge/Challenge.dart';
+import 'package:app/utils/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
 class ChallengesList extends StatefulWidget {
@@ -10,14 +13,43 @@ class ChallengesList extends StatefulWidget {
 class _ChallengesListState extends State<ChallengesList> {
 
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
-  ListHandler<int> _list;
+  ListHandler<Challenge> _list;
 
   @override
   void initState() {
     super.initState();
-    _list = ListHandler<int>(
+    _list = ListHandler<Challenge>(
       listKey: _listKey,
-      initialItems: <int>[0, 1, 2],
+      initialItems: <Challenge>[
+        Challenge(
+          title: 'Relaxation.',
+          description: 'Take one minute where you only think about your breathing.',
+          icon: CustomIcons.coffee_mug,
+          color: peach,
+          experiencePoints: 150,
+        ),
+        Challenge(
+          title: 'Keeping the doctor away.',
+          description: 'Eat 1 carrot.',
+          icon: CustomIcons.carrot,
+          color: teal,
+          experiencePoints: 50,
+        ),
+        Challenge(
+          title: 'I can walk the distance.',
+          description: "Run, roll or walk 4 km outside. Don't let any bad weather stop you!",
+          icon: Icons.directions_walk,
+          color: green,
+          experiencePoints: 350,
+        ),
+        Challenge(
+          title: 'Get down!',
+          description: "Do 20 push-ups today.",
+          icon: Icons.fitness_center,
+          color: asphalt,
+          experiencePoints: 200,
+        ),
+      ],
       removedItemBuilder: _buildRemovedItem,
     );
   }
@@ -41,17 +73,17 @@ class _ChallengesListState extends State<ChallengesList> {
   // [AnimatedListState.removeItem] method's
   // [AnimatedListRemovedItemBuilder] parameter.
   Widget _buildRemovedItem(
-      int item, BuildContext context, Animation<double> animation) {
+      Challenge removedChallenge, BuildContext context, Animation<double> animation) {
     return ChallengeItem(
       animation: animation,
-      item: item,
+      item: removedChallenge,
       // No gesture detector here: we don't want removed items to be interactive.
     );
   }
 
   // Insert the "next item" into the list model.
-  void _insert() {
-    _list.insert(_list.length, _list.length);
+  void _insert(Challenge challenge) {
+    _list.insert(0, challenge);
   }
 
   // Remove the selected item from the list model.
