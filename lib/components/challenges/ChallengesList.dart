@@ -11,8 +11,6 @@ class _ChallengesListState extends State<ChallengesList> {
 
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
   ListHandler<int> _list;
-  int _selectedItem;
-  int _nextItem; // The next item inserted when the user presses the '+' button.
 
   @override
   void initState() {
@@ -22,7 +20,6 @@ class _ChallengesListState extends State<ChallengesList> {
       initialItems: <int>[0, 1, 2],
       removedItemBuilder: _buildRemovedItem,
     );
-    _nextItem = 3;
   }
 
   // Used to build list items that haven't been removed.
@@ -31,12 +28,8 @@ class _ChallengesListState extends State<ChallengesList> {
     return ChallengeItem(
       animation: animation,
       item: _list[index],
-      selected: _selectedItem == _list[index],
       onTap: () {
-        setState(() {
-          _selectedItem = _selectedItem == _list[index] ? null : _list[index];
-          _remove();
-        });
+        _remove(index);
       },
     );
   }
@@ -52,26 +45,18 @@ class _ChallengesListState extends State<ChallengesList> {
     return ChallengeItem(
       animation: animation,
       item: item,
-      selected: false,
       // No gesture detector here: we don't want removed items to be interactive.
     );
   }
 
   // Insert the "next item" into the list model.
   void _insert() {
-    final int index =
-    _selectedItem == null ? _list.length : _list.indexOf(_selectedItem);
-    _list.insert(index, _nextItem++);
+    _list.insert(_list.length, _list.length);
   }
 
   // Remove the selected item from the list model.
-  void _remove() {
-    if (_selectedItem != null) {
-      _list.removeAt(_list.indexOf(_selectedItem));
-      setState(() {
-        _selectedItem = null;
-      });
-    }
+  void _remove(int idx) {
+      _list.removeAt(idx);
   }
 
   @override

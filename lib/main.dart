@@ -1,3 +1,4 @@
+import 'package:app/components/transitions/ScaleInTransition.dart';
 import 'package:app/components/transitions/SlideInTransition.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/views/Calendar.dart';
@@ -52,14 +53,19 @@ class MainApp extends StatelessWidget {
                     Calendar(),
                     DailyActionsNavigator(),
                     (() {
-                      if(context.select((CalendarProvider value) => value.isSelectedDateToday))
-                        return SlideInTransition(
-                            delay: 0,
-                            id: context.select((CalendarProvider value) =>
-                                value.selectedDate.toIso8601String()),
-                            curve: Curves.easeInOutQuint,
-                            offset: Offset(0, 0.25),
-                            child: DailyTopChallenges());
+                      if(context.select((CalendarProvider value) => value.isSelectedDateToday)) {
+                        return Container(
+                          color: green,
+                          child: ScaleInTransition(
+                              delay: 0,
+                              begin: 2.0,
+                              end: 1.0,
+                              id: context.select((CalendarProvider value) =>
+                                  value.selectedDate.toIso8601String()),
+                              curve: Curves.easeInOutQuint,
+                              child: DailyTopChallenges()),
+                        );
+                      }
                       return Container();
                     }())
                     ,
