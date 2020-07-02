@@ -30,8 +30,6 @@ class ChallengeItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    print(item.color);
-
     return SlideTransition(
       position: animation.drive(
           Tween(begin: Offset(2, 0.0), end: Offset(0, 0))

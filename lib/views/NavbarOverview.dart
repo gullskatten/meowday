@@ -53,7 +53,6 @@ class NavbarOverview extends StatelessWidget {
             label: 'My profile',
             icon: Icons.person,
             onPressed: () {
-              print('My profile pressed');
             },
           ),
         )

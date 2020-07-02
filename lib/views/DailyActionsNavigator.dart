@@ -2,7 +2,7 @@ import 'package:animations/animations.dart';
 import 'package:app/components/button/OpaqueIconButton.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/screens/MoodScreen.dart';
+import 'package:app/views/dialogs/MoodDialog.dart';
 import 'package:flutter/material.dart';
 
 class DailyActionsNavigator extends StatelessWidget {
@@ -17,33 +17,23 @@ class DailyActionsNavigator extends StatelessWidget {
         padding: EdgeInsets.all(kSpacingSmall),
         scrollDirection: Axis.horizontal,
         children: <Widget>[
-          OpenContainer<bool>(
-            transitionType: ContainerTransitionType.fade,
-            openBuilder: (BuildContext context, VoidCallback _) {
-              return MoodScreen();
-            },
-            tappable: false,
-            closedColor: peach,
-            openColor: peach,
-            closedElevation: 0.0,
-            openElevation: 0.0,
-            transitionDuration: Duration(milliseconds: 400),
-            closedBuilder: (BuildContext _, VoidCallback openContainer) {
-              return OpaqueIconButton(
+             OpaqueIconButton(
                   label: 'Mood',
                   icon: Icons.mood,
                   onPressed: (){
-                    openContainer();
+                    showModal<void>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return MoodDialog();
+                      },
+                    );
                   }
-              );
-            },
-          ),
+             ),
           SizedBox(width: 15.0,),
           OpaqueIconButton(
               label: 'Notes',
               icon: Icons.event_note,
               onPressed: () {
-                print('pressed!');
               }
           ),
           SizedBox(width: 15.0,),
@@ -51,7 +41,6 @@ class DailyActionsNavigator extends StatelessWidget {
               label: 'Plans',
               icon: Icons.fitness_center,
               onPressed: () {
-                print('pressed!');
               }
           ),
           SizedBox(width: 15.0,),
@@ -59,7 +48,6 @@ class DailyActionsNavigator extends StatelessWidget {
               label: 'Food',
               icon: Icons.fastfood,
               onPressed: () {
-                print('pressed!');
               }
           ),
           SizedBox(width: 15.0,),
@@ -67,7 +55,6 @@ class DailyActionsNavigator extends StatelessWidget {
               label: 'Weight',
               icon: Icons.directions_run,
               onPressed: () {
-                print('pressed!');
               }
           ),
           SizedBox(width: 15.0,),
@@ -75,7 +62,6 @@ class DailyActionsNavigator extends StatelessWidget {
               label: 'Expenses',
               icon: Icons.attach_money,
               onPressed: () {
-                print('pressed!');
               }
           ),
         ],

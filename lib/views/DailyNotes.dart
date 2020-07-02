@@ -64,7 +64,6 @@ class DailyNotes extends StatelessWidget {
                     label: 'Edit todays note',
                     icon: Icons.edit,
                     onPressed: () {
-                      print('pressed!');
                     }),
               ),
             ),

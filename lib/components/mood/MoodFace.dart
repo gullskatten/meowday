@@ -29,7 +29,7 @@ class MoodFace extends StatelessWidget {
           onTap: onTap,
           child: Icon(
             icon,
-            size: 64,
+            size: 48,
             color: isSelected ? Colors.white : Colors.white60,
           ),
         ));
