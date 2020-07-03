@@ -1,6 +1,6 @@
+import 'package:app/components/calendar/Calendar.dart';
 import 'package:app/components/transitions/SlideInTransition.dart';
 import 'package:app/constants/colors/boxes.dart';
-import 'package:app/components/calendar/Calendar.dart';
 import 'package:app/views/DailyActionsNavigator.dart';
 import 'package:app/views/DailyNotes.dart';
 import 'package:app/views/DailyPlans.dart';

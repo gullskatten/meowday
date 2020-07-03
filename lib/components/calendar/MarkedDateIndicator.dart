@@ -1,4 +1,3 @@
-import 'package:app/constants/colors/boxes.dart';
 import 'package:app/utils/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
@@ -10,9 +9,12 @@ class MarkedDateIndicator extends StatelessWidget {
         Container(
           width: 5,
           height: 5,
-          child: Icon(CustomIcons.award_empty, color: Colors.white60, size: 14.0,),
+          child: Icon(
+            CustomIcons.award_empty,
+            color: Colors.white60,
+            size: 14.0,
+          ),
         ),
-
       ],
     );
   }

@@ -1,15 +1,10 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/constants/text/text_styles.dart';
-import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextColor.dart';
 import 'package:app/models/text/TextSize.dart';
 import 'package:app/models/text/TextType.dart';
-import 'package:app/providers/CalendarProvider.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 class DailyPlans extends StatelessWidget {
 

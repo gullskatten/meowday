@@ -3,11 +3,12 @@ import 'package:app/constants/colors/boxes.dart';
 import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextType.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../components/calendar/Calendar.dart';
 import '../constants/colors/boxes.dart';
 import '../models/text/TextColor.dart';
 import '../providers/CalendarProvider.dart';
-import '../components/calendar/Calendar.dart';
-import 'package:provider/provider.dart';
 
 class CalendarScreen extends StatelessWidget {
   @override

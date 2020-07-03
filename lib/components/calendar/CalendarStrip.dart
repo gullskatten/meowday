@@ -2,6 +2,7 @@ library calendar_strip;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import '../../utils/date-utils.dart';
 
 class CalendarStrip extends StatefulWidget {

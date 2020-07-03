@@ -11,7 +11,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/colors/boxes.dart';
-import '../constants/colors/boxes.dart';
 
 class OverallExperience extends StatelessWidget {
   final double percent = 55.3;

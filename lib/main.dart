@@ -1,9 +1,7 @@
-import 'package:animations/animations.dart';
 import 'package:app/components/transitions/ScaleInTransition.dart';
 import 'package:app/components/transitions/SlideInTransition.dart';
 import 'package:app/constants/colors/boxes.dart';
-import 'package:app/screens/CalendarScreen.dart';
-import 'package:app/components/calendar/Calendar.dart';
+import 'package:app/views/CalendarInitializationError.dart';
 import 'package:app/views/DailyActionsNavigator.dart';
 import 'package:app/views/DailyNotes.dart';
 import 'package:app/views/DailyPlans.dart';
@@ -13,13 +11,10 @@ import 'package:app/views/OverallExperience.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'components/button/OpaqueIconButton.dart';
 import 'constants/colors/boxes.dart';
-import 'models/text/FontFamily.dart';
-import 'models/text/TextColor.dart';
+import 'providers/CalendarProvider.dart';
 import 'providers/CalendarProvider.dart';
 import 'views/SelectedDateView.dart';
-import 'views/dialogs/CalendarDialog.dart';
 
 void main() => runApp(MultiProvider(
       providers: [
@@ -54,34 +49,40 @@ class MainApp extends StatelessWidget {
           child: Column(
             children: <Widget>[
               NavbarOverview(),
+              CalendarInitializationError(),
               Expanded(
                 child: ListView(
                   physics: BouncingScrollPhysics(),
                   children: <Widget>[
                     SelectedDateView(),
                     OverallExperience(),
-                    (() {
-                      if (context.select((CalendarProvider value) =>
-                          value.isSelectedDateToday)) {
+                    Consumer<CalendarProvider>(builder:
+                        (BuildContext calContext,
+                            CalendarProvider calendarState, _) {
+                      if (calendarState.isSelectedDateToday &&
+                          !calendarState.hasError &&
+                          !calendarState.isLoadingNtp) {
                         return Column(
                           children: [
                             Container(
                               color: green,
                               child: ScaleInTransition(
-                                  delay: 0,
-                                  begin: 2.0,
-                                  end: 1.0,
-                                  id: context.select((CalendarProvider value) =>
-                                      value.selectedDate.toIso8601String()),
-                                  curve: Curves.easeInOutQuint,
-                                  child: DailyTopChallenges()),
+                                delay: 0,
+                                begin: 2.0,
+                                end: 1.0,
+                                id: calendarState.selectedDate
+                                    .toIso8601String(),
+                                curve: Curves.easeInOutQuint,
+                                child: DailyTopChallenges(),
+                              ),
                             ),
                             DailyActionsNavigator(),
                           ],
                         );
+                      } else {
+                        return Container();
                       }
-                      return Container();
-                    }()),
+                    }),
                     SlideInTransition(
                         delay: 0,
                         id: context.select((CalendarProvider value) =>

@@ -1,31 +1,16 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:animations/animations.dart';
-import 'package:app/screens/CalendarScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
-import '../components/button/OpaqueIconButton.dart';
+import 'package:provider/provider.dart';
+
 import '../components/text/StyledText.dart';
-import '../components/text/StyledText.dart';
-import '../constants/colors/boxes.dart';
-import '../constants/colors/boxes.dart';
-import '../constants/colors/boxes.dart';
 import '../constants/colors/boxes.dart';
 import '../constants/spacing/spacing.dart';
-import '../constants/spacing/spacing.dart';
-import '../constants/text/text_styles.dart';
-import '../constants/text/text_styles.dart';
-import '../constants/text/text_styles.dart';
-import '../constants/text/text_styles.dart';
-import '../constants/text/text_styles.dart';
-import '../constants/text/text_styles.dart';
 import '../constants/text/text_styles.dart';
 import '../models/text/FontFamily.dart';
 import '../models/text/TextColor.dart';
 import '../models/text/TextType.dart';
-import '../providers/CalendarProvider.dart';
-import 'package:provider/provider.dart';
-
 import '../providers/CalendarProvider.dart';
 
 class SelectedDateView extends StatelessWidget {
@@ -44,7 +29,7 @@ class SelectedDateView extends StatelessWidget {
                     context: calContext,
                     initialDate: calendarState.selectedDate,
                     firstDate: DateTime.fromMicrosecondsSinceEpoch(0),
-                    lastDate: DateTime.now(),
+                    lastDate: calendarState.endDate,
                     helpText: 'Select almanac day',
                     builder: (datePickerContext, datePickerWidget) {
                       return Theme(
