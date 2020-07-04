@@ -31,9 +31,15 @@ class DailyActionsNavigator extends StatelessWidget {
              ),
           SizedBox(width: 15.0,),
           OpaqueIconButton(
-              label: 'Notes',
+              label: 'Note',
               icon: Icons.event_note,
-              onPressed: () {
+              onPressed: (){
+                showModal<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return MoodDialog();
+                  },
+                );
               }
           ),
           SizedBox(width: 15.0,),

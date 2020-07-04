@@ -49,13 +49,14 @@ class MainApp extends StatelessWidget {
           child: Column(
             children: <Widget>[
               NavbarOverview(),
-              CalendarInitializationError(),
               Expanded(
                 child: ListView(
                   physics: BouncingScrollPhysics(),
                   children: <Widget>[
                     SelectedDateView(),
                     OverallExperience(),
+                    CalendarInitializationError(),
+
                     Consumer<CalendarProvider>(builder:
                         (BuildContext calContext,
                             CalendarProvider calendarState, _) {

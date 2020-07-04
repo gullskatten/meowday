@@ -17,13 +17,30 @@ class SelectedDateView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric( vertical: kSpacingNormal),
-      child: Column(
-        children: [
-          Consumer<CalendarProvider>(
-            builder:
-                (BuildContext calContext, CalendarProvider calendarState, _) {
-              return InkWell(
+      padding: EdgeInsets.symmetric(vertical: kSpacingNormal),
+      child: Consumer<CalendarProvider>(
+        builder: (BuildContext calContext, CalendarProvider calendarState, _) {
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () => calendarState.onSelect(calendarState.selectedDate.subtract(Duration(days: 1))),
+                child: Column(
+                  children: [
+                    Icon(
+                      Icons.chevron_left,
+                      size: kTitleNormal,
+                      color: Colors.white,
+                    ),
+                    StyledText(
+                        DateFormat("EE")
+                            .format(calendarState.selectedDate.subtract(Duration(days: 1))),
+                      color: TextColor.primary60,
+                    ),
+                  ],
+                ),
+              ),
+              InkWell(
                 onTap: () async {
                   DateTime newSelectedDate = await showDatePicker(
                     context: calContext,
@@ -129,33 +146,68 @@ class SelectedDateView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    TyperAnimatedTextKit(
-                      key: Key(calendarState.selectedDate.month.toString()),
-                      text: [
-                        DateFormat("MMMM yyyy")
-                            .format(calendarState.selectedDate)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(
+                          Icons.calendar_today,
+                          color: TextColor.primary60.toColor,
+                          size: kBodyNormal,
+                        ),
+                        SizedBox(
+                          width: kSpacingSmall,
+                        ),
+                        TyperAnimatedTextKit(
+                          key: Key(calendarState.selectedDate.month.toString()),
+                          text: [
+                            DateFormat("MMMM yyyy")
+                                .format(calendarState.selectedDate)
+                          ],
+                          isRepeatingAnimation: false,
+                          speed: Duration(milliseconds: 75),
+                          textStyle: TextStyle(
+                            fontSize: kBodyNormal,
+                            fontFamily: FontFamily.title.family,
+                            fontWeight: FontWeight.w200,
+                            color: TextColor.primary60.toColor,
+                          ),
+                        )
                       ],
-                      isRepeatingAnimation: false,
-                      speed: Duration(milliseconds: 75),
-                      textStyle: TextStyle(
-                        fontSize: kBodyNormal,
-                        fontFamily: FontFamily.title.family,
+                    ),
+                    FittedBox(
+                      child: StyledText(
+                        DateFormat("EEEE, d.")
+                            .format(calendarState.selectedDate),
+                        type: TextType.title,
                         fontWeight: FontWeight.w200,
-                        color: TextColor.primary60.toColor,
                       ),
                     ),
-                    StyledText(
-                      DateFormat("EEEE, d.").format(calendarState.selectedDate),
-                      type: TextType.title,
-                      fontWeight: FontWeight.w200,
-                    )
                   ],
                 ),
-              );
-            },
-          ),
-          SizedBox(height: kSpacingNormal, width: kSpacingNormal),
-        ],
+              ),
+              GestureDetector(
+                onTap: () => calendarState.onSelect(calendarState.selectedDate.add(Duration(days: 1))),
+                child: Column(
+                  children: [
+                    Icon(
+                      Icons.chevron_right,
+                      size: kTitleNormal,
+                      color: calendarState.isSelectedDateToday
+                          ? Colors.white30
+                          : Colors.white,
+                    ),
+                    StyledText(
+                      DateFormat("EE")
+                          .format(calendarState.selectedDate.add(Duration(days: 1))),
+                      color: calendarState.isSelectedDateToday ? TextColor.primary30
+                           : TextColor.primary60,
+                    ),
+                  ],
+                ),
+              )
+            ],
+          );
+        },
       ),
     );
   }
