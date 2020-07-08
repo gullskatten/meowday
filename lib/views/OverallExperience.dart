@@ -68,8 +68,9 @@ class OverallExperience extends StatelessWidget {
                       width: kSpacingTiny,
                     ),
                     FittedBox(
-                      child: StyledText(
-                        'Level 1: Rookie',
+
+                      child:  StyledText(
+                        'Level 2 Beginner',
                         fontFamily: FontFamily.title,
                         size: TextSize.smaller,
                         fontWeight: FontWeight.bold,

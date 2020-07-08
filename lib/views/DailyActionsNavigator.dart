@@ -3,6 +3,7 @@ import 'package:app/components/button/OpaqueIconButton.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/views/dialogs/MoodDialog.dart';
+import 'package:app/views/dialogs/NoteDialog.dart';
 import 'package:flutter/material.dart';
 
 class DailyActionsNavigator extends StatelessWidget {
@@ -37,7 +38,7 @@ class DailyActionsNavigator extends StatelessWidget {
                 showModal<void>(
                   context: context,
                   builder: (BuildContext context) {
-                    return MoodDialog();
+                    return NoteDialog();
                   },
                 );
               }
