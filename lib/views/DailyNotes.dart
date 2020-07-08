@@ -1,9 +1,12 @@
-import 'package:app/components/button/OpaqueIconButton.dart';
+import 'package:app/components/note/NoteList.dart';
 import 'package:app/components/text/StyledText.dart';
+import 'package:app/components/transition/SlideWithFadeInTransition.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/models/text/TextType.dart';
+import 'package:app/providers/CalendarProvider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class DailyNotes extends StatelessWidget {
 
@@ -11,7 +14,7 @@ class DailyNotes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(kSpacingNormal),
-      color: kContainerPrimaryColor,
+      color: teal,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -28,23 +31,14 @@ class DailyNotes extends StatelessWidget {
             ),
           ),
           SizedBox(height: kSpacingNormal, width: kSpacingNormal),
-          StyledText(
-              'Today I went for a walk with a beautiful girl. Then she noticed me so we went for a run.'),
-          Material(
-            borderRadius: BorderRadius.circular(4),
-            color: kContainerPrimaryColor,
-            child: Padding(
-              padding: const EdgeInsets.all(kSpacingNormal),
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: OpaqueIconButton(
-                    label: 'Edit note',
-                    icon: Icons.edit,
-                    onPressed: () {
-                    }),
-              ),
-            ),
-          )
+          ConstrainedBox(
+              constraints: BoxConstraints(maxHeight: 250),
+              child: SlideWithFadeInTransition(
+                  id: context.watch<CalendarProvider>().selectedDate.toIso8601String(),
+                  delay: 250,
+                  offset: Offset(0, 0.25),
+                  child: NoteList())),
+
         ],
       ),
     );

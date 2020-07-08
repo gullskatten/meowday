@@ -38,11 +38,12 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
   bool get hasError => _hasError;
 
   bool get isSelectedDateToday {
-    return  _selectedDate.isSameDate(_ntpNow) ?? false;
-
+    return _selectedDate.isSameDate(_ntpNow) ?? false;
   }
 
   Future<void> getNtpCurrentDate() async {
+    print('Initializing NTP date.');
+
     _hasInitializedNtp = true;
     _isLoadingNtp = true;
 
@@ -50,11 +51,12 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
       if (value != null) {
         return value;
       }
-      throw new HttpException("Not connected to internet?");
+      throw new HttpException("Could not reach NTP server");
     }).catchError(onError);
 
     if (_ntpNow != null) {
-      if (!_hasChangedDate || (_hasChangedDate && _selectedDate.isAfter(_ntpNow))) {
+      if (!_hasChangedDate ||
+          (_hasChangedDate && _selectedDate.isAfter(_ntpNow))) {
         _selectedDate = _ntpNow;
       }
       _endDate = _ntpNow;
@@ -71,6 +73,13 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
   ];
 
   void onSelect(DateTime newDate) {
+    bool isAfterLastAvailableDay =
+        (newDate.isAfter(selectedDate) && isSelectedDateToday);
+
+    if (isAfterLastAvailableDay) {
+      return;
+    }
+
     _selectedDate = newDate;
     _hasChangedDate = true;
     notifyListeners();

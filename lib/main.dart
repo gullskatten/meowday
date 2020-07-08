@@ -13,7 +13,6 @@ import 'package:provider/provider.dart';
 
 import 'constants/colors/boxes.dart';
 import 'providers/CalendarProvider.dart';
-import 'providers/CalendarProvider.dart';
 import 'views/SelectedDateView.dart';
 
 void main() => runApp(MultiProvider(
@@ -27,6 +26,8 @@ void main() => runApp(MultiProvider(
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -39,7 +40,34 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MainApp extends StatelessWidget {
+class MainApp extends StatefulWidget {
+
+  @override
+  _MainAppState createState() => _MainAppState();
+}
+
+class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed) {
+      context.read<CalendarProvider>().getNtpCurrentDate();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -56,7 +84,6 @@ class MainApp extends StatelessWidget {
                     SelectedDateView(),
                     OverallExperience(),
                     CalendarInitializationError(),
-
                     Consumer<CalendarProvider>(builder:
                         (BuildContext calContext,
                             CalendarProvider calendarState, _) {
@@ -86,15 +113,13 @@ class MainApp extends StatelessWidget {
                     }),
                     SlideInTransition(
                         delay: 0,
-                        id: context.select((CalendarProvider value) =>
-                            value.selectedDate.toIso8601String()),
+                        id: 'notes',
                         curve: Curves.easeInOut,
                         child: DailyNotes()),
                     SlideInTransition(
                         delay: 200,
                         offset: Offset(0.25, 0),
-                        id: context.select((CalendarProvider value) =>
-                            value.selectedDate.toIso8601String()),
+                        id: 'plans',
                         curve: Curves.easeInOut,
                         child: DailyPlans()),
                   ],

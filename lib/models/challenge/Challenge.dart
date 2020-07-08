@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Challenge {
+  String _id;
   String title;
   String description;
   IconData icon;
   int experiencePoints;
   Color color;
+
+  String get id => _id;
 
   Challenge({
     @required this.title,

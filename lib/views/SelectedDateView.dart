@@ -14,6 +14,7 @@ import '../models/text/TextType.dart';
 import '../providers/CalendarProvider.dart';
 
 class SelectedDateView extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return Container(
