@@ -1,6 +1,6 @@
-import 'package:app/components/challenges/ChallengesList.dart';
+import 'package:app/components/challenge/ChallengesList.dart';
 import 'package:app/components/text/StyledText.dart';
-import 'package:app/components/transitions/SlideWithFadeInTransition.dart';
+import 'package:app/components/transition/SlideWithFadeInTransition.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/constants/text/text_styles.dart';

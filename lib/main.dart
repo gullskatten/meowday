@@ -1,5 +1,5 @@
-import 'package:app/components/transitions/ScaleInTransition.dart';
-import 'package:app/components/transitions/SlideInTransition.dart';
+import 'package:app/components/transition/ScaleInTransition.dart';
+import 'package:app/components/transition/SlideInTransition.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/views/CalendarInitializationError.dart';
 import 'package:app/views/DailyActionsNavigator.dart';

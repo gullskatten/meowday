@@ -1,6 +1,6 @@
 import 'package:app/components/mood/MoodFace.dart';
 import 'package:app/components/text/StyledText.dart';
-import 'package:app/components/transitions/ScaleInTransition.dart';
+import 'package:app/components/transition/ScaleInTransition.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:flutter/material.dart';
 

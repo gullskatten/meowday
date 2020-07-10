@@ -3,7 +3,7 @@ import 'package:flutter_conditional_rendering/flutter_conditional_rendering.dart
 import 'package:provider/provider.dart';
 
 import '../components/text/StyledText.dart';
-import '../components/transitions/ScaleInTransition.dart';
+import '../components/transition/ScaleInTransition.dart';
 import '../constants/spacing/spacing.dart';
 import '../constants/text/text_styles.dart';
 import '../models/text/TextColor.dart';

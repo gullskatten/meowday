@@ -1,4 +1,4 @@
-import 'package:app/components/challenges/ChallengeItem.dart';
+import 'package:app/components/challenge/ChallengeItem.dart';
 import 'package:app/components/list/ListHandler.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/models/challenge/Challenge.dart';
@@ -21,6 +21,13 @@ class _ChallengesListState extends State<ChallengesList> {
     _list = ListHandler<Challenge>(
       listKey: _listKey,
       initialItems: <Challenge>[
+        Challenge(
+          title: "Today's picture is...",
+          description: 'Upload a picture from your day!',
+          icon: Icons.camera_alt,
+          color: orange,
+          experiencePoints: 250,
+        ),
         Challenge(
           title: 'Relaxation.',
           description: 'Take one minute where you only think about your breathing.',
