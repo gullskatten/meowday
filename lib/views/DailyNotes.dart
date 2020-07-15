@@ -31,6 +31,7 @@ class DailyNotes extends StatelessWidget {
             ),
           ),
           SizedBox(height: kSpacingNormal, width: kSpacingNormal),
+
           ConstrainedBox(
               constraints: BoxConstraints(maxHeight: 250),
               child: SlideWithFadeInTransition(

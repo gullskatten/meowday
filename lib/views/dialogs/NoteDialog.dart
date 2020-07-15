@@ -1,26 +1,24 @@
+import 'package:app/components/note/NoteColorSelect.dart';
 import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextColor.dart';
-import 'package:app/models/text/TextType.dart';
 import 'package:flutter/material.dart';
 
 class NoteDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: peach,
+      backgroundColor: blue,
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          StyledText(
-            "New note",
-            fontFamily: FontFamily.alternative,
-            type: TextType.subtitle,
+          Align(
+            alignment: Alignment.centerRight,
+            child: NoteColorSelect(),
           ),
           SizedBox(
-            height: kSpacingNormal,
+            height: kSpacingSmall,
           ),
           Container(
             height: 200,
@@ -29,9 +27,10 @@ class NoteDialog extends StatelessWidget {
               maxLines: null,
               keyboardType: TextInputType.multiline,
               expands: true,
-              decoration: InputDecoration.collapsed(hintText: 'Write something about your day?'),
+              decoration: InputDecoration.collapsed(
+                  hintText: 'Write something about your day?'),
             ),
-          )
+          ),
         ],
       ),
       actions: <Widget>[
