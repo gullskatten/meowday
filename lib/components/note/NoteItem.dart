@@ -18,85 +18,76 @@ import 'package:intl/intl.dart';
 /// varies from 0 to 128 as the animation varies from 0.0 to 1.0.
 class NoteItem extends StatelessWidget {
   const NoteItem(
-      {Key key, @required this.animation, this.onTap, @required this.item})
-      : assert(animation != null),
-        assert(item != null),
+      {Key key, this.onTap, @required this.item})
+      : assert(item != null),
         super(key: key);
 
-  final Animation<double> animation;
   final VoidCallback onTap;
   final Note item;
 
   @override
   Widget build(BuildContext context) {
-    return SlideTransition(
-      position: animation.drive(Tween(begin: Offset(2, 0.0), end: Offset(0, 0))
-          .chain(CurveTween(curve: Curves.easeInOut))),
-      child: Container(
-        padding: EdgeInsets.all(kSpacingSmall),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.all(kSpacingNormal),
-              decoration: BoxDecoration(
-                  color: item.color,
-                  borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black12,
-                        offset: Offset(0, 4),
-                        spreadRadius: 2,
-                        blurRadius: 5.0)
-                  ]),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Conditional.single(
-                    context: context,
-                    conditionBuilder: (cb) => item.title != null,
-                    widgetBuilder: (c) => Column(
-                      children: <Widget>[
-                        StyledText(
-                          item.title,
-                          type: TextType.subtitle,
-                          color: TextColor.primary60,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        SizedBox(
-                          height: kSpacingSmall,
-                        ),
-                      ],
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.all(kSpacingNormal),
+          decoration: BoxDecoration(
+              color: item.color,
+              borderRadius: BorderRadius.all(Radius.circular(5.0)),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black12,
+                    offset: Offset(0, 4),
+                    spreadRadius: 2,
+                    blurRadius: 5.0)
+              ]),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Conditional.single(
+                context: context,
+                conditionBuilder: (cb) => item.title != null,
+                widgetBuilder: (c) => Column(
+                  children: <Widget>[
+                    StyledText(
+                      item.title,
+                      type: TextType.subtitle,
+                      color: TextColor.primary60,
+                      fontWeight: FontWeight.bold,
                     ),
-                    fallbackBuilder: (c) => Container(),
-                  ),
+                    SizedBox(
+                      height: kSpacingSmall,
+                    ),
+                  ],
+                ),
+                fallbackBuilder: (c) => Container(height: 0, width: 0,),
+              ),
+              StyledText(
+                item.text,
+              ),
+              SizedBox(
+                height: kSpacingSmall,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
                   StyledText(
-                    item.text,
+                    DateFormat('EE HH:mm').format(item.createdAt),
+                    size: TextSize.smaller,
+                    color: TextColor.primary60,
+                    fontFamily: FontFamily.title,
                   ),
-                  SizedBox(
-                    height: kSpacingSmall,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      StyledText(
-                        DateFormat('EE HH:mm').format(item.createdAt),
-                        size: TextSize.smaller,
-                        color: TextColor.primary60,
-                        fontFamily: FontFamily.title,
-                      ),
-                      FlatIconButton(
-                        icon: Icons.edit,
-                        onPressed: () => {},
-                      ),
-                    ],
+                  FlatIconButton(
+                    icon: Icons.edit,
+                    onPressed: onTap,
                   ),
                 ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }

@@ -1,37 +1,60 @@
+import 'package:animations/animations.dart';
+import 'package:app/components/button/FlatIconButton.dart';
 import 'package:app/components/note/NoteColorSelect.dart';
+import 'package:app/components/note/NoteGridSizeSelect.dart';
 import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
+import 'package:app/constants/text/text_styles.dart';
+import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextColor.dart';
+import 'package:app/models/text/TextSize.dart';
+import 'package:app/models/text/TextType.dart';
 import 'package:flutter/material.dart';
 
-class NoteDialog extends StatelessWidget {
+class NoteDialog extends StatefulWidget {
+  @override
+  _NoteDialogState createState() => _NoteDialogState();
+}
+
+class _NoteDialogState extends State<NoteDialog> {
+  SharedAxisTransitionType _transitionType =
+      SharedAxisTransitionType.horizontal;
+  bool _isDisplayingSettings = false;
+
+  void _toggleSettings() {
+    setState(() {
+      _isDisplayingSettings = !_isDisplayingSettings;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       backgroundColor: blue,
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Align(
-            alignment: Alignment.centerRight,
-            child: NoteColorSelect(),
-          ),
-          SizedBox(
-            height: kSpacingSmall,
-          ),
-          Container(
-            height: 200,
-            child: TextField(
-              autofocus: true,
-              maxLines: null,
-              keyboardType: TextInputType.multiline,
-              expands: true,
-              decoration: InputDecoration.collapsed(
-                  hintText: 'Write something about your day?'),
-            ),
-          ),
-        ],
+      content: PageTransitionSwitcher(
+        duration: const Duration(milliseconds: 300),
+        reverse: false,
+        transitionBuilder: (
+          Widget child,
+          Animation<double> animation,
+          Animation<double> secondaryAnimation,
+        ) {
+          return SharedAxisTransition(
+            child: child,
+            animation: animation,
+            secondaryAnimation: secondaryAnimation,
+            transitionType: _transitionType,
+            fillColor: blue,
+          );
+        },
+        child: _isDisplayingSettings
+            ? _NoteWriteNew(
+                onSettingsPressed: _toggleSettings,
+              )
+            : _NoteSettings(
+                onBackPressed: _toggleSettings,
+              ),
       ),
       actions: <Widget>[
         FlatButton(
@@ -54,6 +77,124 @@ class NoteDialog extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class _NoteWriteNew extends StatelessWidget {
+  final Function onSettingsPressed;
+
+  _NoteWriteNew({@required this.onSettingsPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: blue,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                height: 0,
+                width: kBodyNormal,
+              ),
+              StyledText(
+                'New note',
+                type: TextType.subtitle,
+              ),
+              FlatIconButton(
+                icon: Icons.settings,
+                onPressed: onSettingsPressed,
+              ),
+            ],
+          ),
+          SizedBox(
+            height: kSpacingSmall,
+          ),
+          Container(
+            height: 200,
+            child: TextField(
+              autofocus: true,
+              maxLines: null,
+              keyboardType: TextInputType.multiline,
+              expands: true,
+              decoration:
+                  InputDecoration.collapsed(hintText: 'Write something here..'),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _NoteSettings extends StatelessWidget {
+  final Function onBackPressed;
+
+  _NoteSettings({@required this.onBackPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: blue,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              FlatIconButton(
+                icon: Icons.arrow_back,
+                onPressed: onBackPressed,
+              ),
+              StyledText(
+                'Options',
+                type: TextType.subtitle,
+                fontFamily: FontFamily.alternative,
+              ),
+              Container(
+                height: 0,
+                width: kBodyNormal,
+              ),
+            ],
+          ),
+          SizedBox(
+            height: kSpacingSmall,
+          ),
+          Container(
+              height: 200,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  StyledText(
+                    'Size',
+                    type: TextType.body,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  NoteGridSizeSelect(),
+                  SizedBox(
+                    height: kSpacingTiny,
+                  ),
+                  StyledText(
+                    'Specify how much space this note should take up in the Note section grid. '
+                    'By default notes fill 50% of the grid (horizontally). ',
+                    size: TextSize.smaller,
+                  ),
+                  SizedBox(
+                    height: kSpacingNormal,
+                  ),
+                  StyledText('Note color',
+                      type: TextType.body, fontWeight: FontWeight.bold),
+                  NoteColorSelect(),
+                ],
+              )),
+        ],
+      ),
     );
   }
 }

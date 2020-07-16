@@ -3,6 +3,7 @@ import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/constants/text/text_styles.dart';
 import 'package:app/models/note/NoteColor.dart';
+import 'package:app/models/text/FontFamily.dart';
 import 'package:flutter/material.dart';
 
 class NoteColorSelect extends StatefulWidget {
@@ -25,9 +26,9 @@ class _NoteColorSelectState extends State<NoteColorSelect> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<NoteColor>(
+      isExpanded: true,
       value: selectedNoteColor,
       elevation: 16,
-      icon: Icon(Icons.palette),
       onChanged: (NoteColor newValue) {
         setState(() {
           selectedNoteColor = newValue;
@@ -46,6 +47,7 @@ class _NoteColorSelectState extends State<NoteColorSelect> {
             children: <Widget>[
               StyledText(
                 value.value,
+                fontFamily: FontFamily.title,
               ),
               SizedBox(width: kSpacingSmall,),
               Container(

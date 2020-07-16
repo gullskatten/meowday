@@ -33,13 +33,12 @@ class DailyNotes extends StatelessWidget {
           SizedBox(height: kSpacingNormal, width: kSpacingNormal),
 
           ConstrainedBox(
-              constraints: BoxConstraints(maxHeight: 250),
+              constraints: BoxConstraints(maxHeight: 300),
               child: SlideWithFadeInTransition(
                   id: context.watch<CalendarProvider>().selectedDate.toIso8601String(),
                   delay: 250,
                   offset: Offset(0, 0.25),
                   child: NoteList())),
-
         ],
       ),
     );

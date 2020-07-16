@@ -22,6 +22,13 @@ class _ChallengesListState extends State<ChallengesList> {
       listKey: _listKey,
       initialItems: <Challenge>[
         Challenge(
+          title: "#today",
+          description: 'Add a tag to this day.',
+          icon: Icons.filter_vintage,
+          color: Colors.pink,
+          experiencePoints: 100,
+        ),
+        Challenge(
           title: "Today's picture is...",
           description: 'Upload a picture from your day!',
           icon: Icons.camera_alt,
