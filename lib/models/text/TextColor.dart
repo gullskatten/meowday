@@ -1,3 +1,4 @@
+import 'package:app/constants/colors/boxes.dart';
 import 'package:flutter/material.dart';
 
 enum TextColor {
@@ -17,7 +18,7 @@ extension TextColors on TextColor {
       case TextColor.secondary:
         return Colors.deepPurpleAccent;
       case TextColor.tertiary:
-        return Colors.orangeAccent;
+        return kPrimaryNormal;
       case TextColor.warn:
         return Colors.orangeAccent;
       case TextColor.error:

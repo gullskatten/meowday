@@ -72,7 +72,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: orange,
+        backgroundColor: kBackground,
         body: Container(
           child: Column(
             children: <Widget>[
@@ -93,7 +93,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
                         return Column(
                           children: [
                             Container(
-                              color: green,
+                              color: kSecondaryLight,
                               child: ScaleInTransition(
                                 delay: 0,
                                 begin: 2.0,

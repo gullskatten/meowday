@@ -34,18 +34,16 @@ class OpaqueIconButton extends StatelessWidget {
           ),
           StyledText(
             label,
-            size: TextSize.smaller,
           )
           ,
         ],
       ),
       onPressed: onPressed,
       textColor: Colors.white,
-      color: Colors.white10,
       shape: OutlineInputBorder(
           borderSide: BorderSide(
               style: BorderStyle.solid, width: 0, color: Colors.white30),
-          borderRadius: new BorderRadius.circular(15.0)),
+          borderRadius: new BorderRadius.circular(5.0)),
     );
   }
 }

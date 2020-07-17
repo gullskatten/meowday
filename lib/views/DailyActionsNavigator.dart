@@ -11,7 +11,7 @@ class DailyActionsNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: kSectionPrimaryColor,
+      color: kPrimaryNormal,
       height: 50.0,
       child: ListView(
         physics: BouncingScrollPhysics(),
@@ -41,6 +41,13 @@ class DailyActionsNavigator extends StatelessWidget {
                     return NoteDialog();
                   },
                 );
+              }
+          ),
+          SizedBox(width: 15.0,),
+          OpaqueIconButton(
+              label: 'Picture',
+              icon: Icons.camera_alt,
+              onPressed: () {
               }
           ),
           SizedBox(width: 15.0,),

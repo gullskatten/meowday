@@ -23,16 +23,17 @@ class _DailyTopChallengesState extends State<DailyTopChallenges> {
         return ChallengesScreen();
       },
       tappable: false,
-      closedColor: blue,
-      openColor: blue,
+      closedColor: kSecondaryLight,
+      openColor: kSecondaryLight,
       closedElevation: 0.0,
       openElevation: 0.0,
+      closedShape: BeveledRectangleBorder(),
       transitionDuration: Duration(milliseconds: 400),
       closedBuilder: (BuildContext _, VoidCallback openContainer) {
         return InkWell(
           onTap: openContainer,
           child: Container(
-            color: blue,
+            color: kSecondaryLight,
             padding: EdgeInsets.all(kSpacingNormal),
             width: double.infinity,
             child: Row(
@@ -61,8 +62,8 @@ class _DailyTopChallengesState extends State<DailyTopChallenges> {
                                 blurRadius: 48.0,
                                 offset: Offset.fromDirection(0, 0)),
                             new BoxShadow(
-                                color: Colors.blue,
-                                blurRadius: 96.0,
+                                color: kPrimaryLight,
+                                blurRadius: 72.0,
                                 offset: Offset.fromDirection(0, 0))
                           ]),
                       child: Center(

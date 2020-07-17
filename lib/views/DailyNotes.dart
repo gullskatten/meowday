@@ -1,3 +1,5 @@
+import 'package:app/components/button/FlatIconButton.dart';
+import 'package:app/components/button/OpaqueIconButton.dart';
 import 'package:app/components/note/NoteList.dart';
 import 'package:app/components/text/StyledText.dart';
 import 'package:app/components/transition/SlideWithFadeInTransition.dart';
@@ -7,6 +9,9 @@ import 'package:app/models/text/TextType.dart';
 import 'package:app/providers/CalendarProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:animations/animations.dart';
+
+import 'dialogs/NoteDialog.dart';
 
 class DailyNotes extends StatelessWidget {
 
@@ -14,21 +19,29 @@ class DailyNotes extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(kSpacingNormal),
-      color: teal,
+      color: kPrimaryDarkest,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Align(
-            alignment: Alignment.centerLeft,
-            child: SizedBox(
-              width: double.infinity,
-              child: StyledText(
-                'Notes',
-                type: TextType.title,
+
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              StyledText(
+                'Notes from this day',
+                type: TextType.subtitle,
                 fontWeight: FontWeight.w200,
               ),
-            ),
+              FlatIconButton(
+                icon: Icons.add,
+                onPressed: () => showModal<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return NoteDialog();
+                  }),
+              )
+            ],
           ),
           SizedBox(height: kSpacingNormal, width: kSpacingNormal),
 

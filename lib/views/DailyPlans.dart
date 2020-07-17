@@ -13,7 +13,7 @@ class DailyPlans extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.all(kSpacingNormal),
-      color: kContainerSecondaryColor,
+      color: kSecondaryNormal,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,

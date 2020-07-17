@@ -49,11 +49,11 @@ class _NoteGridSizeSelectState extends State<NoteGridSizeSelect> {
                           width: kSpacingNormal,
                           height: kSpacingNormal,
                           decoration: BoxDecoration(
-                              color: peach,
+                              color: kSecondaryLight,
                               border: Border.symmetric(
                                 vertical: BorderSide(
                                     width: 2.0,
-                                    color: asphalt
+                                    color: kPrimaryDarkest
                                 ),
                               )),
                         );
@@ -66,11 +66,11 @@ class _NoteGridSizeSelectState extends State<NoteGridSizeSelect> {
                           width: kSpacingNormal,
                           height: kSpacingNormal,
                           decoration: BoxDecoration(
-                              color: asphalt,
+                              color: kPrimaryDarkest,
                               border: Border.symmetric(
                                 vertical: BorderSide(
                                   width: 2.0,
-                                  color: asphalt
+                                  color: kPrimaryDarkest
                                 ),
                               )),
                         );

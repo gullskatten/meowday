@@ -16,7 +16,7 @@ class FlatIconButton extends StatelessWidget {
       child: InkWell(
         enableFeedback: true,
         child: Padding(
-          padding: const EdgeInsets.symmetric(
+          padding: EdgeInsets.symmetric(
             vertical: kSpacingSmall,
             horizontal: kSpacingSmall
           ),

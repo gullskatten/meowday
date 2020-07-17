@@ -13,7 +13,7 @@ class ChallengesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: blue,
+      backgroundColor: kSecondaryDark,
       appBar: AppBar(
         actions: <Widget>[
           IconButton(
@@ -26,7 +26,7 @@ class ChallengesScreen extends StatelessWidget {
           )
         ],
         elevation: 0.0,
-        backgroundColor: blue,
+        backgroundColor: kSecondaryDark,
         title: StyledText(
           "Daily Challenges",
           fontFamily: FontFamily.alternative,

@@ -18,6 +18,7 @@ class SelectedDateView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      color: kPrimaryDarkest,
       padding: EdgeInsets.symmetric(vertical: kSpacingNormal),
       child: Consumer<CalendarProvider>(
         builder: (BuildContext calContext, CalendarProvider calendarState, _) {
@@ -52,31 +53,31 @@ class SelectedDateView extends StatelessWidget {
                     builder: (datePickerContext, datePickerWidget) {
                       return Theme(
                         data: Theme.of(datePickerContext).copyWith(
-                            primaryColor: orange,
-                            cursorColor: orange,
-                            dialogBackgroundColor: asphalt,
-                            primaryColorDark: orange,
+                            primaryColor: kPrimaryLight,
+                            cursorColor: kPrimaryLight,
+                            dialogBackgroundColor: kPrimaryDarkest,
+                            primaryColorDark: kPrimaryNormal,
                             primaryColorBrightness: Brightness.dark,
-                            textSelectionColor: orange,
-                            textSelectionHandleColor: orange,
+                            textSelectionColor: kPrimaryNormal,
+                            textSelectionHandleColor: kPrimaryNormal,
                             colorScheme: Theme.of(context).colorScheme.copyWith(
-                                  background: orange,
-                                  primary: orange,
-                                  surface: orange,
+                                  background: kPrimaryLight,
+                                  primary: kPrimaryLight,
+                                  surface: kPrimaryLight,
                                   brightness: Brightness.dark,
                                 ),
                             inputDecorationTheme:
                                 Theme.of(context).inputDecorationTheme.copyWith(
                                     focusedBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
-                                      color: Colors.orange,
+                                      color: kPrimaryLight,
                                     )),
-                                    hoverColor: Colors.orange,
-                                    focusColor: orange,
-                                    fillColor: orange,
+                                    hoverColor: kPrimaryLight,
+                                    focusColor: kPrimaryNormal,
+                                    fillColor: kPrimaryLight,
                                     labelStyle: TextStyle(
                                       fontSize: kBodyNormal,
-                                      color: orange,
+                                      color: kPrimaryLight,
                                       fontWeight: FontWeight.bold,
                                     )),
                             textTheme: Theme.of(context).textTheme.copyWith(

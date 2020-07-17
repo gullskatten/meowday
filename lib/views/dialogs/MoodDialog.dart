@@ -11,7 +11,7 @@ class MoodDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: peach,
+      backgroundColor: kPrimaryNormal,
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[

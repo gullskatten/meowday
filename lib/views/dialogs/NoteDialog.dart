@@ -31,7 +31,7 @@ class _NoteDialogState extends State<NoteDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: blue,
+      backgroundColor: kPrimaryNormal,
       content: PageTransitionSwitcher(
         duration: const Duration(milliseconds: 300),
         reverse: false,
@@ -45,16 +45,15 @@ class _NoteDialogState extends State<NoteDialog> {
             animation: animation,
             secondaryAnimation: secondaryAnimation,
             transitionType: _transitionType,
-            fillColor: blue,
+            fillColor: kPrimaryNormal,
           );
         },
         child: _isDisplayingSettings
-            ? _NoteWriteNew(
-                onSettingsPressed: _toggleSettings,
-              )
-            : _NoteSettings(
+            ? _NoteSettings(
                 onBackPressed: _toggleSettings,
-              ),
+              ) : _NoteWriteNew(
+          onSettingsPressed: _toggleSettings,
+        ),
       ),
       actions: <Widget>[
         FlatButton(
@@ -89,7 +88,6 @@ class _NoteWriteNew extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: blue,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -139,7 +137,6 @@ class _NoteSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: blue,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
@@ -155,7 +152,6 @@ class _NoteSettings extends StatelessWidget {
               StyledText(
                 'Options',
                 type: TextType.subtitle,
-                fontFamily: FontFamily.alternative,
               ),
               Container(
                 height: 0,
@@ -164,7 +160,7 @@ class _NoteSettings extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: kSpacingSmall,
+            height: kSpacingNormal,
           ),
           Container(
               height: 200,
