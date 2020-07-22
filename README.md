@@ -6,4 +6,4 @@ Gain experience points and achievements by completing daily challenges or simply
 
 ## App-state (WIP)
 
-<img src="/doc/alamanac_home.PNG" alt="meowday_app"/>
+<img src="/doc/almanac_home.png" alt="meowday_app"/>
