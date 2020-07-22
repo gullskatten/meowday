@@ -100,7 +100,7 @@ class _NoteListState extends State<NoteList> {
       itemBuilder: (BuildContext context, int index) => NoteItem(
         item: _list[index],
         onTap: () {
-          print(index);
+          debugPrint('$index');
         },
       ),
       staggeredTileBuilder: (int index) {
