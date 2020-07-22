@@ -42,10 +42,16 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
   }
 
   Future<void> getNtpCurrentDate() async {
-    print('Initializing NTP date.');
+    debugPrint('Initializing NTP date.');
 
     _hasInitializedNtp = true;
     _isLoadingNtp = true;
+
+    Future.delayed(Duration(seconds: 10), (){
+      if(_isLoadingNtp) {
+        onError(null,null);
+      }
+    });
 
     _ntpNow = await NTP.now().then((value) {
       if (value != null) {
@@ -63,6 +69,7 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
       _hasError = false;
       _isLoadingNtp = false;
       notifyListeners();
+      debugPrint('NTP date initialized.');
     }
   }
 
@@ -101,5 +108,6 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
     _endDate = DateTime.now();
     _isLoadingNtp = false;
     notifyListeners();
+    debugPrint('Failed to initialize date -> $err');
   }
 }
