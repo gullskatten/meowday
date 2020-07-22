@@ -8,25 +8,36 @@ import 'package:app/views/DailyPlans.dart';
 import 'package:app/views/DailyTopChallenges.dart';
 import 'package:app/views/NavbarOverview.dart';
 import 'package:app/views/OverallExperience.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'constants/colors/boxes.dart';
 import 'providers/CalendarProvider.dart';
 import 'views/SelectedDateView.dart';
 
-void main() => runApp(MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => CalendarProvider(),
-        )
-      ],
-      child: MyApp(),
-    ));
+void main() {
+  debugPrint = (String message, {int wrapWidth = 500}) =>
+      debugPrintSynchronouslyWithText(message, wrapWidth: wrapWidth);
+
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(
+        create: (_) => CalendarProvider(),
+      )
+    ],
+    child: MyApp(),
+  ));
+}
+
+void debugPrintSynchronouslyWithText(String message, {int wrapWidth}) {
+  message = "[${DateTime.now()}]: $message";
+  debugPrintSynchronously(message, wrapWidth: wrapWidth);
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +47,26 @@ class MyApp extends StatelessWidget {
       darkTheme: ThemeData.dark(),
       home: MainApp(),
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      localeResolutionCallback:
+          (Locale locale, Iterable<Locale> supportedLocales) {
+        debugPrint('${locale.countryCode}');
+        debugPrint('${supportedLocales.join(',')}');
+        return locale;
+      },
+      supportedLocales: [
+        const Locale.fromSubtags(countryCode: 'NB', languageCode: 'no'),
+        const Locale('en', ''), // English, no country code
+      ],
     );
   }
 }
 
 class MainApp extends StatefulWidget {
-
   @override
   _MainAppState createState() => _MainAppState();
 }
@@ -53,13 +78,11 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
     super.initState();
   }
 
-
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
-
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
