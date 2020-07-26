@@ -32,7 +32,7 @@ class NavbarOverview extends StatelessWidget {
             children: [
               Icon(
                 CustomIcons.cat,
-                size: kBodyNormal,
+                size: kBodyLarger,
                 color: kSecondaryLight,
               ),
               SizedBox(

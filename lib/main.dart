@@ -11,6 +11,7 @@ import 'package:app/views/NavbarOverview.dart';
 import 'package:app/views/OverallExperience.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'constants/colors/boxes.dart';
@@ -20,6 +21,8 @@ import 'views/SelectedDateView.dart';
 void main() {
   debugPrint = (String message, {int wrapWidth = 500}) =>
       debugPrintSynchronouslyWithText(message, wrapWidth: wrapWidth);
+
+
 
   runApp(MultiProvider(
     providers: [
@@ -41,6 +44,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+   // SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.white
+    ));
+
     return MaterialApp(
       title: 'Meowday',
       themeMode: ThemeMode.dark,
@@ -102,62 +111,65 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: kBackground,
-        body: Container(
-          child: Column(
-            children: <Widget>[
-              NavbarOverview(),
-              Expanded(
-                child: ListView(
-                  physics: BouncingScrollPhysics(),
-                  children: <Widget>[
-                    SelectedDateView(),
-                    OverallExperience(),
-                    CalendarInitializationError(),
-                    Consumer<CalendarProvider>(builder:
-                        (BuildContext calContext,
-                            CalendarProvider calendarState, _) {
-                      if (calendarState.isSelectedDateToday &&
-                          !calendarState.hasError &&
-                          !calendarState.isLoadingNtp) {
-                        return Column(
-                          children: [
-                            Container(
-                              color: kSecondaryLight,
-                              child: ScaleInTransition(
-                                delay: 0,
-                                begin: 2.0,
-                                end: 1.0,
-                                id: calendarState.selectedDate
-                                    .toIso8601String(),
-                                curve: Curves.easeInOutQuint,
-                                child: DailyTopChallenges(),
+    return Container(
+      color: kBackground,
+      child: SafeArea(
+        child: Scaffold(
+          backgroundColor: kBackground,
+          body: Container(
+            child: Column(
+              children: <Widget>[
+                NavbarOverview(),
+                Expanded(
+                  child: ListView(
+                    physics: BouncingScrollPhysics(),
+                    children: <Widget>[
+                      SelectedDateView(),
+                      OverallExperience(),
+                      CalendarInitializationError(),
+                      Consumer<CalendarProvider>(builder:
+                          (BuildContext calContext,
+                              CalendarProvider calendarState, _) {
+                        if (calendarState.isSelectedDateToday &&
+                            !calendarState.hasError &&
+                            !calendarState.isLoadingNtp) {
+                          return Column(
+                            children: [
+                              Container(
+                                color: kSecondaryLight,
+                                child: ScaleInTransition(
+                                  delay: 0,
+                                  begin: 2.0,
+                                  end: 1.0,
+                                  id: calendarState.selectedDate
+                                      .toIso8601String(),
+                                  curve: Curves.easeInOutQuint,
+                                  child: DailyTopChallenges(),
+                                ),
                               ),
-                            ),
-                            DailyActionsNavigator(),
-                          ],
-                        );
-                      } else {
-                        return Container();
-                      }
-                    }),
-                    SlideInTransition(
-                        delay: 0,
-                        id: 'notes',
-                        curve: Curves.easeInOut,
-                        child: DailyNotes()),
-                    SlideInTransition(
-                        delay: 200,
-                        offset: Offset(0.25, 0),
-                        id: 'plans',
-                        curve: Curves.easeInOut,
-                        child: DailyPlans()),
-                  ],
-                ),
-              )
-            ],
+                              DailyActionsNavigator(),
+                            ],
+                          );
+                        } else {
+                          return Container();
+                        }
+                      }),
+                      SlideInTransition(
+                          delay: 0,
+                          id: 'notes',
+                          curve: Curves.easeInOut,
+                          child: DailyNotes()),
+                      SlideInTransition(
+                          delay: 200,
+                          offset: Offset(0.25, 0),
+                          id: 'plans',
+                          curve: Curves.easeInOut,
+                          child: DailyPlans()),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),
