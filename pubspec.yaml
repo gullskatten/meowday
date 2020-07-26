@@ -83,6 +83,9 @@ flutter:
       fonts:
         - asset: fonts/Raleway-Light.ttf
         - asset: fonts/Raleway-Regular.ttf
+    - family: PatrickHand
+      fonts:
+        - asset: fonts/PatrickHand-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

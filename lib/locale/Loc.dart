@@ -4,11 +4,14 @@ import 'package:app/views/DailyActionsNavigator.dart';
 import 'package:app/views/DailyNotes.dart';
 import 'package:app/views/DailyPlans.dart';
 import 'package:app/views/DailyTopChallenges.dart';
+import 'package:app/views/MoodSelect.dart';
 import 'package:app/views/NavbarOverview.dart';
 import 'package:app/views/OverallExperience.dart';
 import 'package:app/views/SelectedDateView.dart';
+import 'package:app/views/WeatherSelect.dart';
 import 'package:app/views/dialogs/MoodDialog.dart';
 import 'package:app/views/dialogs/NoteDialog.dart';
+import 'package:app/views/dialogs/WeatherDialog.dart';
 import 'package:flutter/material.dart';
 
 const k_common_button_cancel = "common.button.cancel";
@@ -39,19 +42,27 @@ class Loc {
       k_actions_button_plans: 'Plans',
       k_actions_button_picture: 'Picture',
       k_actions_button_food: 'Food',
-      k_actions_button_weight: 'Weight',
       k_actions_button_tag: 'Tag',
+      k_actions_button_weight: 'Weight',
+      k_actions_button_weather: 'Weather',
       k_note_section_title: 'Notes from this day',
       k_note_new_title: 'New note',
-      k_note_new_placeholder: 'Write something here..',
+      k_note_new_placeholder: 'Write something..',
       k_note_new_options_title: 'Options',
       k_note_options_color_title: 'Background color',
       k_mood_dialog_title: 'How do you feel today?',
-      k_mood_option_5: "I'm feeling awesome! 🥳",
-      k_mood_option_4: "I'm doing alright.",
-      k_mood_option_3: "I'm not sure.",
-      k_mood_option_2: "Things are not that great.",
-      k_mood_option_1: "Not my day. 😩",
+      k_mood_sentiment_very_satisfied: "I'm feeling awesome! 🥳",
+      k_mood_sentiment_satisfied: "I'm doing alright.",
+      k_mood_sentiment_neutral: "I'm not sure.",
+      k_mood_sentiment_dissatisfied: "Things are not that great.",
+      k_mood_sentiment_very_dissatisfied: "Not my day. 😩",
+      k_weather_dialog_title: 'How is the weather today?',
+      k_weather_sunny: 'Clear sky. 👌',
+      k_weather_cloud_sun: 'Pretty nice.',
+      k_weather_cloudy: 'Cloudy.',
+      k_weather_rain: "It's raining today. ️🌧",
+      k_weather_snow: "It's snowing! ☃️",
+      k_weather_cloud_flash: "The storm has come. ☔⚡️",
       k_experience_needed_label: 'more experience to next level',
       k_experience_level_label: 'Level',
       k_plans_section_title: 'My plans',
@@ -76,17 +87,25 @@ class Loc {
       k_actions_button_picture: 'Bilde',
       k_actions_button_food: 'Mat',
       k_actions_button_weight: 'Vekt',
+      k_actions_button_weather: 'Været',
       k_note_section_title: 'Notater for dagen',
       k_note_new_title: 'Nytt notat',
       k_note_new_placeholder: 'Skriv noe her..',
       k_note_new_options_title: 'Alternativer',
       k_note_options_color_title: 'Bakgrunnsfarge',
       k_mood_dialog_title: 'Hvordan føler du deg?',
-      k_mood_option_5: "Helt topp! 🥳",
-      k_mood_option_4: "Ganske bra.",
-      k_mood_option_3: "Ikke sikker.",
-      k_mood_option_2: "Ting er ikke så bra.",
-      k_mood_option_1: "Dette er ikke min dag. 😩",
+      k_mood_sentiment_very_satisfied: "Helt topp! 🥳",
+      k_mood_sentiment_satisfied: "Ganske bra.",
+      k_mood_sentiment_neutral: "Ikke sikker.",
+      k_mood_sentiment_dissatisfied: "Ting er ikke så bra.",
+      k_mood_sentiment_very_dissatisfied: "Dette er ikke min dag. 😩",
+      k_weather_dialog_title: 'Hvordan er været i dag?',
+      k_weather_sunny: 'Skyfri himmel. 👌',
+      k_weather_cloud_sun: 'Det er ikke så verst.',
+      k_weather_cloudy: 'Overskyet.',
+      k_weather_rain: 'Det regner.',
+      k_weather_snow: 'Det snør! ☃️',
+      k_weather_cloud_flash: 'Tordenvær = Innevær ☔⚡',
       k_experience_needed_label: 'mer poeng til neste nivå',
       k_experience_level_label: 'Nivå',
       k_plans_section_title: 'Mine planer',

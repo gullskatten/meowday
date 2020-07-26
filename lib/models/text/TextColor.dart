@@ -16,9 +16,9 @@ extension TextColors on TextColor {
       case TextColor.primary60:
         return Colors.white60;
       case TextColor.secondary:
-        return Colors.deepPurpleAccent;
+        return kSecondaryLight;
       case TextColor.tertiary:
-        return kPrimaryNormal;
+        return kTertiaryNormal;
       case TextColor.warn:
         return Colors.orangeAccent;
       case TextColor.error:

@@ -49,7 +49,7 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
 
     Future.delayed(Duration(seconds: 10), (){
       if(_isLoadingNtp) {
-        onError(null,null);
+        onError('Delayed timeout reached.', '');
       }
     });
 
@@ -108,6 +108,6 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
     _endDate = DateTime.now();
     _isLoadingNtp = false;
     notifyListeners();
-    debugPrint('Failed to initialize date -> $err');
+    debugPrint('Failed to initialize date -> $err ');
   }
 }

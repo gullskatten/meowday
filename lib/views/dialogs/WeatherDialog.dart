@@ -5,12 +5,12 @@ import 'package:app/locale/Loc.dart';
 import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextColor.dart';
 import 'package:app/models/text/TextType.dart';
-import 'package:app/views/MoodSelect.dart';
+import 'package:app/views/WeatherSelect.dart';
 import 'package:flutter/material.dart';
 
-const k_mood_dialog_title = 'mood.dialog.title';
+const k_weather_dialog_title = 'weather.dialog.title';
 
-class MoodDialog extends StatelessWidget {
+class WeatherDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -18,15 +18,18 @@ class MoodDialog extends StatelessWidget {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          StyledText(
-            Loc.of(context).t(k_mood_dialog_title),
-            fontFamily: FontFamily.alternative,
-            type: TextType.subtitle,
+          FittedBox(
+            child: StyledText(
+              Loc.of(context).t(k_weather_dialog_title),
+              fontFamily: FontFamily.alternative,
+              type: TextType.subtitle,
+              maxLines: 1,
+            ),
           ),
           SizedBox(
             height: kSpacingNormal,
           ),
-          MoodSelect(),
+          WeatherSelect(),
         ],
       ),
       actions: <Widget>[
