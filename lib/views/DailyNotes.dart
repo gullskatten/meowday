@@ -5,6 +5,7 @@ import 'package:app/components/text/StyledText.dart';
 import 'package:app/components/transition/SlideWithFadeInTransition.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
+import 'package:app/locale/Loc.dart';
 import 'package:app/models/text/TextType.dart';
 import 'package:app/providers/CalendarProvider.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,8 @@ import 'package:provider/provider.dart';
 import 'package:animations/animations.dart';
 
 import 'dialogs/NoteDialog.dart';
+
+const k_note_section_title = 'note.section.title';
 
 class DailyNotes extends StatelessWidget {
 
@@ -29,7 +32,7 @@ class DailyNotes extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               StyledText(
-                'Notes from this day',
+                Loc.of(context).t(k_note_section_title),
                 type: TextType.subtitle,
                 fontWeight: FontWeight.w200,
               ),

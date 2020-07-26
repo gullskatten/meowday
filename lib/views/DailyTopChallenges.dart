@@ -3,13 +3,17 @@ import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/constants/text/text_styles.dart';
+import 'package:app/locale/Loc.dart';
 import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextType.dart';
 import 'package:app/screens/ChallengesScreen.dart';
 import 'package:app/utils/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
+const k_challenge_banner_title = 'challenge.banner.title';
+
 class DailyTopChallenges extends StatefulWidget {
+
   @override
   _DailyTopChallengesState createState() => _DailyTopChallengesState();
 }
@@ -41,7 +45,7 @@ class _DailyTopChallengesState extends State<DailyTopChallenges> {
               children: <Widget>[
                 FittedBox(
                   child: StyledText(
-                    "New challenges available!",
+                    Loc.of(context).t(k_challenge_banner_title),
                     type: TextType.subtitle,
                     textDecoration: TextDecoration.underline,
                     fontWeight: FontWeight.w200,

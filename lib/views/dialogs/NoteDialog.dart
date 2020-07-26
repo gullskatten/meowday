@@ -6,12 +6,16 @@ import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/constants/text/text_styles.dart';
-import 'package:app/models/text/FontFamily.dart';
+import 'package:app/locale/Loc.dart';
 import 'package:app/models/text/TextColor.dart';
 import 'package:app/models/text/TextSize.dart';
 import 'package:app/models/text/TextType.dart';
 import 'package:flutter/material.dart';
 
+const k_note_new_title = 'note.new.title';
+const k_note_new_placeholder = 'note.new.text.placeholder';
+const k_note_new_options_title = 'note.new.options.title';
+const k_note_options_color_title = 'note.new.options.color.title';
 class NoteDialog extends StatefulWidget {
   @override
   _NoteDialogState createState() => _NoteDialogState();
@@ -61,7 +65,7 @@ class _NoteDialogState extends State<NoteDialog> {
             Navigator.of(context).pop();
           },
           child: StyledText(
-            'Cancel',
+            Loc.of(context).t(k_common_button_cancel),
             fontWeight: FontWeight.bold,
             color: TextColor.primary60,
           ),
@@ -71,7 +75,7 @@ class _NoteDialogState extends State<NoteDialog> {
             Navigator.of(context).pop();
           },
           child: StyledText(
-            'Save',
+            Loc.of(context).t(k_common_button_confirm),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -100,7 +104,7 @@ class _NoteWriteNew extends StatelessWidget {
                 width: kBodyNormal,
               ),
               StyledText(
-                'New note',
+                Loc.of(context).t(k_note_new_title),
                 type: TextType.subtitle,
               ),
               FlatIconButton(
@@ -120,7 +124,7 @@ class _NoteWriteNew extends StatelessWidget {
               keyboardType: TextInputType.multiline,
               expands: true,
               decoration:
-                  InputDecoration.collapsed(hintText: 'Write something here..'),
+                  InputDecoration.collapsed(hintText: Loc.of(context).t(k_note_new_placeholder)),
             ),
           ),
         ],
@@ -150,7 +154,7 @@ class _NoteSettings extends StatelessWidget {
                 onPressed: onBackPressed,
               ),
               StyledText(
-                'Options',
+                Loc.of(context).t(k_note_new_options_title),
                 type: TextType.subtitle,
               ),
               Container(
@@ -167,24 +171,10 @@ class _NoteSettings extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  StyledText(
-                    'Size',
-                    type: TextType.body,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  NoteGridSizeSelect(),
-                  SizedBox(
-                    height: kSpacingTiny,
-                  ),
-                  StyledText(
-                    'Specify how much space this note should take up in the Note section grid. '
-                    'By default notes fill 50% of the grid (horizontally). ',
-                    size: TextSize.smaller,
-                  ),
                   SizedBox(
                     height: kSpacingNormal,
                   ),
-                  StyledText('Note color',
+                  StyledText(Loc.of(context).t(k_note_options_color_title),
                       type: TextType.body, fontWeight: FontWeight.bold),
                   NoteColorSelect(),
                 ],

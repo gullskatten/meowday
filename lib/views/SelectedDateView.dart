@@ -1,9 +1,10 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:app/locale/Loc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-
+import '../utils/extensions/string_extension.dart';
 import '../components/text/StyledText.dart';
 import '../constants/colors/boxes.dart';
 import '../constants/spacing/spacing.dart';
@@ -13,6 +14,7 @@ import '../models/text/TextColor.dart';
 import '../models/text/TextType.dart';
 import '../providers/CalendarProvider.dart';
 
+const k_calendar_modal_day_title = 'calendar.modal.dayselect.title';
 class SelectedDateView extends StatelessWidget {
 
   @override
@@ -35,8 +37,9 @@ class SelectedDateView extends StatelessWidget {
                       color: Colors.white,
                     ),
                     StyledText(
-                        DateFormat("EE")
-                            .format(calendarState.selectedDate.subtract(Duration(days: 1))),
+                        DateFormat("EE", Loc.of(context).locale.languageCode)
+                            .format(calendarState.selectedDate.subtract(Duration(days: 1)))
+                            .capitalize(),
                       color: TextColor.primary60,
                     ),
                   ],
@@ -49,7 +52,7 @@ class SelectedDateView extends StatelessWidget {
                     initialDate: calendarState.selectedDate,
                     firstDate: DateTime.fromMicrosecondsSinceEpoch(0),
                     lastDate: calendarState.endDate,
-                    helpText: 'Select almanac day',
+                    helpText: Loc.of(context).t(k_calendar_modal_day_title),
                     builder: (datePickerContext, datePickerWidget) {
                       return Theme(
                         data: Theme.of(datePickerContext).copyWith(
@@ -162,8 +165,9 @@ class SelectedDateView extends StatelessWidget {
                         TyperAnimatedTextKit(
                           key: Key(calendarState.selectedDate.month.toString()),
                           text: [
-                            DateFormat("MMMM yyyy")
+                            DateFormat("MMMM yyyy", Loc.of(context).locale.languageCode)
                                 .format(calendarState.selectedDate)
+                                .capitalize()
                           ],
                           isRepeatingAnimation: false,
                           speed: Duration(milliseconds: 75),
@@ -178,8 +182,9 @@ class SelectedDateView extends StatelessWidget {
                     ),
                     FittedBox(
                       child: StyledText(
-                        DateFormat("EEEE, d.")
-                            .format(calendarState.selectedDate),
+                        DateFormat("EEEE, d.", Loc.of(context).locale.languageCode)
+                            .format(calendarState.selectedDate)
+                        .capitalize(),
                         type: TextType.title,
                         fontWeight: FontWeight.w200,
                       ),
@@ -199,8 +204,9 @@ class SelectedDateView extends StatelessWidget {
                           : Colors.white,
                     ),
                     StyledText(
-                      DateFormat("EE")
-                          .format(calendarState.selectedDate.add(Duration(days: 1))),
+                      DateFormat("EE", Loc.of(context).locale.languageCode)
+                          .format(calendarState.selectedDate.add(Duration(days: 1)))
+                           .capitalize(),
                       color: calendarState.isSelectedDateToday ? TextColor.primary30
                            : TextColor.primary60,
                     ),

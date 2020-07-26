@@ -2,9 +2,19 @@ import 'package:animations/animations.dart';
 import 'package:app/components/button/OpaqueIconButton.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
+import 'package:app/locale/Loc.dart';
 import 'package:app/views/dialogs/MoodDialog.dart';
 import 'package:app/views/dialogs/NoteDialog.dart';
 import 'package:flutter/material.dart';
+
+const k_actions_button_mood = 'actions.button.mood';
+const k_actions_button_note = 'actions.button.note';
+const k_actions_button_tag = 'actions.button.tag';
+const k_actions_button_plans = 'actions.button.plans';
+const k_actions_button_picture = 'actions.button.picture';
+const k_actions_button_food = 'actions.button.food';
+const k_actions_button_weight = 'actions.button.weight';
+
 
 class DailyActionsNavigator extends StatelessWidget {
 
@@ -19,7 +29,7 @@ class DailyActionsNavigator extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: <Widget>[
              OpaqueIconButton(
-                  label: 'Mood',
+                  label: Loc.of(context).t(k_actions_button_mood),
                   icon: Icons.mood,
                   onPressed: (){
                     showModal<void>(
@@ -32,7 +42,7 @@ class DailyActionsNavigator extends StatelessWidget {
              ),
           SizedBox(width: 15.0,),
           OpaqueIconButton(
-              label: 'Note',
+              label: Loc.of(context).t(k_actions_button_note),
               icon: Icons.event_note,
               onPressed: (){
                 showModal<void>(
@@ -45,36 +55,36 @@ class DailyActionsNavigator extends StatelessWidget {
           ),
           SizedBox(width: 15.0,),
           OpaqueIconButton(
-              label: 'Picture',
+              label: Loc.of(context).t(k_actions_button_tag),
+              icon: Icons.filter_vintage,
+              onPressed: () {
+              }
+          ),
+          SizedBox(width: 15.0,),
+          OpaqueIconButton(
+              label: Loc.of(context).t(k_actions_button_picture),
               icon: Icons.camera_alt,
               onPressed: () {
               }
           ),
           SizedBox(width: 15.0,),
           OpaqueIconButton(
-              label: 'Plans',
+              label: Loc.of(context).t(k_actions_button_plans),
               icon: Icons.fitness_center,
               onPressed: () {
               }
           ),
           SizedBox(width: 15.0,),
           OpaqueIconButton(
-              label: 'Food',
+              label: Loc.of(context).t(k_actions_button_food),
               icon: Icons.fastfood,
               onPressed: () {
               }
           ),
           SizedBox(width: 15.0,),
           OpaqueIconButton(
-              label: 'Weight',
+              label: Loc.of(context).t(k_actions_button_weight),
               icon: Icons.directions_run,
-              onPressed: () {
-              }
-          ),
-          SizedBox(width: 15.0,),
-          OpaqueIconButton(
-              label: 'Expenses',
-              icon: Icons.attach_money,
               onPressed: () {
               }
           ),

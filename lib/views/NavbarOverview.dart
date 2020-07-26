@@ -1,6 +1,7 @@
 import 'package:app/components/button/OpaqueIconButton.dart';
 import 'package:app/components/container/ImageContainer.dart';
 import 'package:app/components/text/StyledText.dart';
+import 'package:app/locale/Loc.dart';
 import 'package:app/models/text/TextColor.dart';
 import 'package:app/models/text/TextType.dart';
 import 'package:app/providers/CalendarProvider.dart';
@@ -8,6 +9,9 @@ import 'package:app/utils/determine_bg.dart';
 import 'package:app/utils/greet.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+
+const k_profile_button_myprofile_label = 'profile.button.myprofile.label';
 
 class NavbarOverview extends StatelessWidget {
   @override
@@ -18,8 +22,8 @@ class NavbarOverview extends StatelessWidget {
             child: Column(
               children: <Widget>[
                 Container(
-                  width: 80.0,
-                  height: 80.0,
+                  width: 24.0,
+                  height: 24.0,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/images/espen.jpg'),
@@ -31,13 +35,13 @@ class NavbarOverview extends StatelessWidget {
                       boxShadow: [
                         new BoxShadow(
                             color: Colors.black38,
-                            blurRadius: 10.0,
+                            blurRadius: 5.0,
                             offset: Offset.fromDirection(-300, 5))
                       ]),
                 ),
                 FittedBox(
                   child: StyledText(
-                    '${greet(context.watch<CalendarProvider>().selectedDate)}, Espen',
+                    '${greet(context.watch<CalendarProvider>().selectedDate, context)}, Espen',
                     maxLines: 1,
                     type: TextType.title,
                     fontWeight: FontWeight.w200,
@@ -50,7 +54,7 @@ class NavbarOverview extends StatelessWidget {
           top: 10.0,
           right: 10,
           child: OpaqueIconButton(
-            label: 'My profile',
+            label: Loc.of(context).t(k_profile_button_myprofile_label),
             icon: Icons.person,
             onPressed: () {
             },

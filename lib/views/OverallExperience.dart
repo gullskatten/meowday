@@ -3,6 +3,7 @@ import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/constants/text/text_styles.dart';
+import 'package:app/locale/Loc.dart';
 import 'package:app/models/text/FontFamily.dart';
 import 'package:app/models/text/TextColor.dart';
 import 'package:app/models/text/TextSize.dart';
@@ -11,6 +12,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/colors/boxes.dart';
+
+const k_experience_level_label = 'experience.level.label';
+const k_experience_needed_label = 'experience.needed.label';
 
 class OverallExperience extends StatelessWidget {
   final double percent = 55.3;
@@ -65,12 +69,11 @@ class OverallExperience extends StatelessWidget {
                       size: kBodySmaller,
                     ),
                     SizedBox(
-                      width: kSpacingTiny,
+                      width: kSpacingSmall,
                     ),
                     FittedBox(
-
                       child:  StyledText(
-                        'Level 2 Beginner',
+                        '${Loc.of(context).t(k_experience_level_label)} 2',
                         fontFamily: FontFamily.title,
                         size: TextSize.smaller,
                         fontWeight: FontWeight.bold,
@@ -82,7 +85,7 @@ class OverallExperience extends StatelessWidget {
                 Row(
                   children: <Widget>[
                     StyledText(
-                      '150 more experience to next level',
+                      '150 ${Loc.of(context).t(k_experience_needed_label)}',
                       fontFamily: FontFamily.title,
                       size: TextSize.smaller,
                     ),

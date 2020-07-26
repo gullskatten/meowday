@@ -2,6 +2,8 @@ import 'package:app/components/mood/MoodFace.dart';
 import 'package:app/components/text/StyledText.dart';
 import 'package:app/components/transition/ScaleInTransition.dart';
 import 'package:app/constants/spacing/spacing.dart';
+import 'package:app/locale/Loc.dart';
+import 'package:app/views/dialogs/MoodDialog.dart';
 import 'package:flutter/material.dart';
 
 class MoodSelect extends StatefulWidget {
@@ -70,7 +72,7 @@ class _MoodSelectState extends State<MoodSelect> {
           end: 1.0,
           begin: 0.85,
           child: StyledText(
-            determineMoodText(),
+            determineMoodText(context),
           ),
         )
       ],
@@ -83,19 +85,19 @@ class _MoodSelectState extends State<MoodSelect> {
     });
   }
 
-  String determineMoodText() {
+  String determineMoodText(BuildContext context) {
     switch(_selectedMood) {
       case _veryDissatisfied:
-        return "Not my day.";
+        return Loc.of(context).t(k_mood_option_1);
       case _dissatisfied:
-        return "Things are not that great.";
+        return Loc.of(context).t(k_mood_option_2);
       case _neutral:
-        return 'Not sure.';
+        return Loc.of(context).t(k_mood_option_3);
       case _satisfied:
-        return "I'm doing alright.";
+        return Loc.of(context).t(k_mood_option_4);
       case _verySatisfied:
       default:
-        return "I'm feeling awesome! 🥳";
+        return Loc.of(context).t(k_mood_option_5);
     }
   }
 }

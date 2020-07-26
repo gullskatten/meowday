@@ -1,10 +1,14 @@
 import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
+import 'package:app/locale/Loc.dart';
 import 'package:app/models/text/TextColor.dart';
 import 'package:app/models/text/TextSize.dart';
 import 'package:app/models/text/TextType.dart';
 import 'package:flutter/material.dart';
+
+const k_plans_section_title = 'plans.section.title';
+const k_plans_section_description = 'plans.section.description';
 
 class DailyPlans extends StatelessWidget {
 
@@ -28,7 +32,7 @@ class DailyPlans extends StatelessWidget {
               child: SizedBox(
                 width: double.infinity,
                 child: StyledText(
-                  'My plans',
+                  Loc.of(context).t(k_plans_section_title),
                   type: TextType.title,
                   fontWeight: FontWeight.w200,
                 ),
@@ -37,7 +41,7 @@ class DailyPlans extends StatelessWidget {
           ),
           SizedBox(height: kSpacingNormal, width: kSpacingNormal),
           StyledText(
-              "Here's a list of things you've planned."),
+             Loc.of(context).t(k_plans_section_description)),
           SizedBox(height: kSpacingNormal, width: kSpacingNormal),
               Container(
                 height: 250.0,

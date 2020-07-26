@@ -1,6 +1,7 @@
 import 'package:app/components/transition/ScaleInTransition.dart';
 import 'package:app/components/transition/SlideInTransition.dart';
 import 'package:app/constants/colors/boxes.dart';
+import 'package:app/locale/MainLocalizationsDelegate.dart';
 import 'package:app/views/CalendarInitializationError.dart';
 import 'package:app/views/DailyActionsNavigator.dart';
 import 'package:app/views/DailyNotes.dart';
@@ -12,7 +13,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-
 import 'constants/colors/boxes.dart';
 import 'providers/CalendarProvider.dart';
 import 'views/SelectedDateView.dart';
@@ -51,16 +51,25 @@ class MyApp extends StatelessWidget {
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
+        MainLocalizationsDelegate(),
       ],
       localeResolutionCallback:
           (Locale locale, Iterable<Locale> supportedLocales) {
-        debugPrint('${locale.countryCode}');
-        debugPrint('${supportedLocales.join(',')}');
+        debugPrint('Current language: ${locale}');
+        debugPrint('Current CC: ${locale.countryCode}');
+        debugPrint('Current LC: ${locale.languageCode}');
+        debugPrint('Current LT: ${locale.toLanguageTag()}');
+        debugPrint('Supported languages: ${supportedLocales.join(',')}');
+
+        if(locale.languageCode == 'nb') {
+          return Locale.fromSubtags(languageCode: 'no');
+        }
+
         return locale;
       },
       supportedLocales: [
-        const Locale.fromSubtags(countryCode: 'NB', languageCode: 'no'),
-        const Locale('en', ''), // English, no country code
+        const Locale.fromSubtags(languageCode: 'no'),
+        const Locale('en'), // English, no country code
       ],
     );
   }
