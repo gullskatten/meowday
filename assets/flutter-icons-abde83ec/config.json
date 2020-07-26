@@ -1,0 +1,118 @@
+{
+  "name": "CustomIcons",
+  "css_prefix_text": "",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "d8cb9b21aa58ce378aa51481971b2436",
+      "css": "trophy",
+      "code": 61585,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "01879adc8814a7cb4a5f6d3301558b2f",
+      "css": "award-empty",
+      "code": 59392,
+      "src": "iconic"
+    },
+    {
+      "uid": "9e559a2177d021249ca7385e9ca8d3e6",
+      "css": "carrot",
+      "code": 63367,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "2d2e900e19b64c9bb07d9a036330f723",
+      "css": "scroll_unfurled",
+      "code": 60047,
+      "src": "rpgawesome"
+    },
+    {
+      "uid": "3b3f46dbf87f8f59eae3f0228d5d6a0f",
+      "css": "tentacle",
+      "code": 60104,
+      "src": "rpgawesome"
+    },
+    {
+      "uid": "aef1b275112dc1215e003c1b334c68c6",
+      "css": "seagull",
+      "code": 60050,
+      "src": "rpgawesome"
+    },
+    {
+      "uid": "4c7bbc0bcaaa7e01a76ed3c5e414928c",
+      "css": "cat",
+      "code": 59743,
+      "src": "rpgawesome"
+    },
+    {
+      "uid": "8788ad7580c00e218788afaaf95cb7f4",
+      "css": "beer",
+      "code": 59690,
+      "src": "rpgawesome"
+    },
+    {
+      "uid": "28f8c675e6d29a8d6f8b24e2ed3f5843",
+      "css": "super_mushroom",
+      "code": 60095,
+      "src": "rpgawesome"
+    },
+    {
+      "uid": "4c722218206ac67e3a2d743c7a0e317e",
+      "css": "coffee_mug",
+      "code": 59758,
+      "src": "rpgawesome"
+    },
+    {
+      "uid": "8d0f8c43caaebd0cbd8cb7c26c9de795",
+      "css": "hashtag",
+      "code": 62098,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "95fb2e5fdd1ea7e4a420b6ed330e6b08",
+      "css": "sun",
+      "code": 59393,
+      "src": "meteocons"
+    },
+    {
+      "uid": "9cd3e294ca3ad3dda66bc5a804021c46",
+      "css": "cloud-sun",
+      "code": 59394,
+      "src": "meteocons"
+    },
+    {
+      "uid": "0f6059e468716a93329821bcbf11220d",
+      "css": "snow-heavy",
+      "code": 59395,
+      "src": "meteocons"
+    },
+    {
+      "uid": "d577552bb94bdeb53e6517873481aeea",
+      "css": "rain",
+      "code": 59396,
+      "src": "meteocons"
+    },
+    {
+      "uid": "17463471d0f132cee16835507ea51ecf",
+      "css": "cloud",
+      "code": 59397,
+      "src": "meteocons"
+    },
+    {
+      "uid": "cc1179bd34dcbe7bf80785075af60d37",
+      "css": "cloud-flash",
+      "code": 59398,
+      "src": "meteocons"
+    },
+    {
+      "uid": "5fad7d41511701337ddd5ad9896edc4b",
+      "css": "windy",
+      "code": 59399,
+      "src": "meteocons"
+    }
+  ]
+}
