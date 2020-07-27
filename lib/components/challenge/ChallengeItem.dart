@@ -15,10 +15,7 @@ import 'package:flutter/material.dart';
 /// varies from 0 to 128 as the animation varies from 0.0 to 1.0.
 class ChallengeItem extends StatelessWidget {
   const ChallengeItem(
-      {Key key,
-      @required this.animation,
-      this.onTap,
-      @required this.item})
+      {Key key, @required this.animation, this.onTap, @required this.item})
       : assert(animation != null),
         assert(item != null),
         super(key: key);
@@ -29,13 +26,14 @@ class ChallengeItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return SlideTransition(
-      position: animation.drive(
-          Tween(begin: Offset(2, 0.0), end: Offset(0, 0))
-              .chain(CurveTween(curve: Curves.easeInOut))),
+      position: animation.drive(Tween(begin: Offset(2, 0.0), end: Offset(0, 0))
+          .chain(CurveTween(curve: Curves.easeInOut))),
       child: Container(
-        padding: EdgeInsets.all(kSpacingSmall),
+        padding: EdgeInsets.symmetric(
+          vertical: kSpacingSmall,
+          horizontal: kSpacingNormal,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -92,11 +90,11 @@ class ChallengeItem extends StatelessWidget {
                 title: StyledText(
                   item.title,
                   fontWeight: FontWeight.bold,
+                  size: TextSize.bigger,
                 ),
                 subtitle: StyledText(
                   item.description,
                   fontWeight: FontWeight.bold,
-                  size: TextSize.smaller,
                   color: TextColor.primary60,
                 ),
               ),

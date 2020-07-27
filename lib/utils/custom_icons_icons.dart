@@ -50,6 +50,7 @@ class CustomIcons {
   static const IconData coffee_mug = IconData(0xe96e, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData scroll_unfurled = IconData(0xea8f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData seagull = IconData(0xea92, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData shoe_prints = IconData(0xea98, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData super_mushroom = IconData(0xeabf, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData tentacle = IconData(0xeac8, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData trophy = IconData(0xf091, fontFamily: _kFontFam, fontPackage: _kFontPkg);

@@ -1,5 +1,6 @@
 import 'package:app/components/button/FlatIconButton.dart';
 import 'package:app/components/text/StyledText.dart';
+import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/models/note/Note.dart';
 import 'package:app/models/text/FontFamily.dart';
@@ -33,7 +34,7 @@ class NoteItem extends StatelessWidget {
         Container(
           padding: EdgeInsets.all(kSpacingNormal),
           decoration: BoxDecoration(
-              color: item.color,
+              color: kPrimaryDark,
               borderRadius: BorderRadius.all(Radius.circular(5.0)),
               boxShadow: [
                 BoxShadow(

@@ -1,3 +1,4 @@
+import 'package:app/components/step/StepCounterItem.dart';
 import 'package:app/screens/ChallengesScreen.dart';
 import 'package:app/utils/greet.dart';
 import 'package:app/views/DailyActionsNavigator.dart';
@@ -11,6 +12,7 @@ import 'package:app/views/SelectedDateView.dart';
 import 'package:app/views/WeatherSelect.dart';
 import 'package:app/views/dialogs/MoodDialog.dart';
 import 'package:app/views/dialogs/NoteDialog.dart';
+import 'package:app/views/dialogs/TagDialog.dart';
 import 'package:app/views/dialogs/WeatherDialog.dart';
 import 'package:flutter/material.dart';
 
@@ -57,18 +59,27 @@ class Loc {
       k_mood_sentiment_dissatisfied: "Things are not that great.",
       k_mood_sentiment_very_dissatisfied: "Not my day. 😩",
       k_weather_dialog_title: 'How is the weather today?',
-      k_weather_sunny: 'Clear sky. 👌',
-      k_weather_cloud_sun: 'Pretty nice.',
-      k_weather_cloudy: 'Cloudy.',
+      k_weather_sunny: 'Clear sky today. 👌',
+      k_weather_cloud_sun: 'Pretty nice today.',
+      k_weather_cloudy: 'Cloudy today.',
       k_weather_rain: "It's raining today. ️🌧",
       k_weather_snow: "It's snowing! ☃️",
       k_weather_cloud_flash: "The storm has come. ☔⚡️",
       k_experience_needed_label: 'more experience to next level',
       k_experience_level_label: 'Level',
       k_plans_section_title: 'My plans',
-      k_plans_section_description: "Here is a list of things you have planned for this day.",
+      k_plans_section_description:
+          "Here is a list of things you have planned for this day.",
       k_challenges_screen_title: "Daily Challenges",
-      k_challenges_screen_description: 'New challenges arrive here every day. Each challenge provides experience points when completed, and is an easy way of creating healthy habits. You can also create your own challenges, and decide how often they should occur.',
+      k_challenges_screen_description:
+          'New challenges arrive here every day. Each challenge provides experience points when completed, and is an easy way of creating healthy habits. You can also create your own challenges, and decide how often they should occur.',
+      k_tag_dialog_title: 'Add a tag',
+      k_tag_dialog_suggest_label: 'Suggestions',
+      k_tag_suggestion_1: 'summer',
+      k_tag_suggestion_2: 'beach',
+      k_tag_suggestion_3: 'oslo',
+      k_tag_suggestion_4: 'running',
+      k_step_counter_today_label: 'Steps today'
     },
     'no': {
       k_calendar_modal_day_title: 'Velg dag',
@@ -82,7 +93,7 @@ class Loc {
       k_challenge_banner_title: 'Nye utfordringer tilgjengelig!',
       k_actions_button_mood: 'Humør',
       k_actions_button_note: 'Notat',
-      k_actions_button_tag: 'Tag',
+      k_actions_button_tag: 'Emneknagg',
       k_actions_button_plans: 'Planer',
       k_actions_button_picture: 'Bilde',
       k_actions_button_food: 'Mat',
@@ -100,10 +111,10 @@ class Loc {
       k_mood_sentiment_dissatisfied: "Ting er ikke så bra.",
       k_mood_sentiment_very_dissatisfied: "Dette er ikke min dag. 😩",
       k_weather_dialog_title: 'Hvordan er været i dag?',
-      k_weather_sunny: 'Skyfri himmel. 👌',
-      k_weather_cloud_sun: 'Det er ikke så verst.',
-      k_weather_cloudy: 'Overskyet.',
-      k_weather_rain: 'Det regner.',
+      k_weather_sunny: 'Skyfri himmel i dag. 👌',
+      k_weather_cloud_sun: 'Det er ikke så verst i dag.',
+      k_weather_cloudy: 'Overskyet i dag.',
+      k_weather_rain: 'Det regner i dag.',
       k_weather_snow: 'Det snør! ☃️',
       k_weather_cloud_flash: 'Tordenvær = Innevær ☔⚡',
       k_experience_needed_label: 'mer poeng til neste nivå',
@@ -111,8 +122,15 @@ class Loc {
       k_plans_section_title: 'Mine planer',
       k_plans_section_description: 'Her er en liste over ting du har planlagt.',
       k_challenges_screen_title: 'Daglige utfordringer',
-      k_challenges_screen_description: 'Nye utfordringer dukker opp her hver dag. Hver utfordring gir deg poeng når de blir utført og gjør det lettere å skape sunne vaner. Du kan også opprette dine egne utfordringer, og velge hvor ofte de skal dukke opp',
-
+      k_challenges_screen_description:
+          'Nye utfordringer dukker opp her hver dag. Hver utfordring gir deg poeng når de blir utført og gjør det lettere å skape sunne vaner. Du kan også opprette dine egne utfordringer, og velge hvor ofte de skal dukke opp',
+      k_tag_dialog_title: 'Ny emneknagg',
+      k_tag_dialog_suggest_label: 'Forslag',
+      k_tag_suggestion_1: 'sommer',
+      k_tag_suggestion_2: 'strand',
+      k_tag_suggestion_3: 'oslo',
+      k_tag_suggestion_4: 'løping',
+      k_step_counter_today_label: 'Skritt i dag'
     },
   };
 

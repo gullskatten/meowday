@@ -61,10 +61,12 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
     }).catchError(onError);
 
     if (_ntpNow != null) {
+
       if (!_hasChangedDate ||
           (_hasChangedDate && _selectedDate.isAfter(_ntpNow))) {
         _selectedDate = _ntpNow;
       }
+
       _endDate = _ntpNow;
       _hasError = false;
       _isLoadingNtp = false;

@@ -5,7 +5,7 @@ class ImageContainer extends StatelessWidget {
   final ImageProvider image;
   final Widget child;
 
-  ImageContainer(this.image, {@required this.child});
+  ImageContainer(this.image, {this.child});
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +15,9 @@ class ImageContainer extends StatelessWidget {
       decoration: BoxDecoration(
         image: DecorationImage(
           image: image,
-          fit: BoxFit.fill,
+          fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(Colors.white60, BlendMode.darken),
         ),
-      ),
-
-      child: Padding(
-        padding: EdgeInsets.all(kSpacingLarge),
-        child: child,
       ),
     );
   }

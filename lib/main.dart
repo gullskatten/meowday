@@ -22,8 +22,6 @@ void main() {
   debugPrint = (String message, {int wrapWidth = 500}) =>
       debugPrintSynchronouslyWithText(message, wrapWidth: wrapWidth);
 
-
-
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(
@@ -44,11 +42,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-   // SystemChrome.setEnabledSystemUIOverlays([]);
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.white
-    ));
+    // SystemChrome.setEnabledSystemUIOverlays([]);
+    SystemChrome.setSystemUIOverlayStyle(
+        SystemUiOverlayStyle(statusBarColor: Colors.white));
 
     return MaterialApp(
       title: 'Meowday',
@@ -70,7 +66,7 @@ class MyApp extends StatelessWidget {
         debugPrint('Current LT: ${locale.toLanguageTag()}');
         debugPrint('Supported languages: ${supportedLocales.join(',')}');
 
-        if(locale.languageCode == 'nb') {
+        if (locale.languageCode == 'nb') {
           return Locale.fromSubtags(languageCode: 'no');
         }
 
@@ -118,56 +114,44 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
           backgroundColor: kBackground,
           body: Container(
             child: Column(
-              children: <Widget>[
+              children: [
                 NavbarOverview(),
+                SelectedDateView(),
+                OverallExperience(),
+                CalendarInitializationError(),
+                Consumer<CalendarProvider>(builder:
+                    (BuildContext calContext,
+                    CalendarProvider calendarState, _) {
+                  if (calendarState.isSelectedDateToday &&
+                      !calendarState.hasError &&
+                      !calendarState.isLoadingNtp) {
+                    return Column(
+                      children: [
+                        DailyActionsNavigator(),
+                        Container(
+                          child: ScaleInTransition(
+                            delay: 0,
+                            begin: 2.0,
+                            end: 1.0,
+                            id: calendarState.selectedDate
+                                .toIso8601String(),
+                            curve: Curves.easeInOutQuint,
+                            child: DailyTopChallenges(),
+                          ),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return Container();
+                  }
+                }),
                 Expanded(
-                  child: ListView(
-                    physics: BouncingScrollPhysics(),
-                    children: <Widget>[
-                      SelectedDateView(),
-                      OverallExperience(),
-                      CalendarInitializationError(),
-                      Consumer<CalendarProvider>(builder:
-                          (BuildContext calContext,
-                              CalendarProvider calendarState, _) {
-                        if (calendarState.isSelectedDateToday &&
-                            !calendarState.hasError &&
-                            !calendarState.isLoadingNtp) {
-                          return Column(
-                            children: [
-                              Container(
-                                color: kSecondaryLight,
-                                child: ScaleInTransition(
-                                  delay: 0,
-                                  begin: 2.0,
-                                  end: 1.0,
-                                  id: calendarState.selectedDate
-                                      .toIso8601String(),
-                                  curve: Curves.easeInOutQuint,
-                                  child: DailyTopChallenges(),
-                                ),
-                              ),
-                              DailyActionsNavigator(),
-                            ],
-                          );
-                        } else {
-                          return Container();
-                        }
-                      }),
-                      SlideInTransition(
-                          delay: 0,
-                          id: 'notes',
-                          curve: Curves.easeInOut,
-                          child: DailyNotes()),
-                      SlideInTransition(
-                          delay: 200,
-                          offset: Offset(0.25, 0),
-                          id: 'plans',
-                          curve: Curves.easeInOut,
-                          child: DailyPlans()),
-                    ],
-                  ),
-                )
+                  child: SlideInTransition(
+                      delay: 0,
+                      id: 'notes',
+                      curve: Curves.easeInOut,
+                      child: DailyNotes()),
+                ),
               ],
             ),
           ),

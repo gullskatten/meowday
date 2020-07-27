@@ -15,7 +15,7 @@ class NoteList extends StatefulWidget {
 
 class _NoteListState extends State<NoteList> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey<AnimatedListState>();
-  ListHandler<Note> _list;
+  ListHandler<dynamic> _list;
 
   @override
   void initState() {
@@ -25,33 +25,33 @@ class _NoteListState extends State<NoteList> {
       initialItems: <Note>[
         Note('Remember to call Luna and ask about the new dog food.',
         color: kPrimaryDark,
-        size: 2),
+        ),
         Note("Today, I found a golden coin.\n\n"
             "Unsure of what fortunes this little coin had for me, I sat down and wondered about what mysteries lied ahead."
             ,
             color: kPrimaryNormal,
             title: 'Golden Coin',
-            size: 2
+
         ),
         Note('Not much happened today either, so I continued with Flutter.',
             color: kPrimaryLight,
-            size: 2),
+            ),
         Note("Oh, what would I do without this almanac, It is so embarrassing to forget which day it is."
             "\n\n"
             " Or what I ate yesterday.",
         color: kPrimaryNormal,
-        size: 4),
+        ),
         Note('I never know because I never try.',
             color: kPrimaryDarkest,
-            size: 2),
+            ),
         Note('It has been a while since the last day of summer, I wish it would come back soon.',
             title: 'Too soon!',
             color: kPrimaryNormal,
-            size: 2),
+            ),
         Note('Wish I knew what to do with this app when it is finished.',
             title: 'Future',
             color: kPrimaryLight,
-            size: 4),
+            ),
       ],
       removedItemBuilder: _buildRemovedItem,
     );

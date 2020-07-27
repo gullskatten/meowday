@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import '../../models/text/TextType.dart';
 
 class StyledText extends StatelessWidget {
+
   final TextType type;
   final TextSize size;
   final TextColor color;

@@ -1,7 +1,6 @@
 import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/constants/text/text_styles.dart';
-import 'package:app/models/text/TextSize.dart';
 import 'package:flutter/material.dart';
 
 class OpaqueIconButton extends StatelessWidget {

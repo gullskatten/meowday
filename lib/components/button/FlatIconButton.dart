@@ -8,8 +8,10 @@ class FlatIconButton extends StatelessWidget {
   final Function onPressed;
 
   FlatIconButton({@required this.onPressed, @required this.icon});
+
   @override
   Widget build(BuildContext context) {
+
     return Material(
       type: MaterialType.transparency,
       borderRadius: BorderRadius.circular(50.0),
