@@ -33,14 +33,13 @@ class NavbarOverview extends StatelessWidget {
               Icon(
                 CustomIcons.cat,
                 size: kBodyLarger,
-                color: kSecondaryLight,
+                color: teal,
               ),
               SizedBox(
                 width: kSpacingSmall,
               ),
               StyledText(
                 'Meowday',
-                color: TextColor.secondary,
                 size: TextSize.bigger,
               )
             ],

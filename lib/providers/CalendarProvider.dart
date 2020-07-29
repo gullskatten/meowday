@@ -4,6 +4,8 @@ import 'package:flutter/foundation.dart';
 import 'package:ntp/ntp.dart';
 
 import '../utils/extensions/is_same_date_extension.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 /// Mix-in [DiagnosticableTreeMixin] to have access to [debugFillProperties] for the devtool
 class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
@@ -11,11 +13,13 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
   bool _hasInitializedNtp = false;
   bool _isLoadingNtp = true;
   bool _hasChangedDate = false;
-
+  Position position;
+  GeolocationStatus geolocationStatus;
   DateTime _selectedDate = DateTime.now();
   DateTime _endDate = DateTime.now();
   DateTime _startDate = DateTime.fromMillisecondsSinceEpoch(0);
   DateTime _ntpNow;
+  List<Placemark> placemark;
 
   DateTime get selectedDate {
     if (!_hasInitializedNtp) {
@@ -39,6 +43,31 @@ class CalendarProvider with ChangeNotifier, DiagnosticableTreeMixin {
 
   bool get isSelectedDateToday {
     return _selectedDate.isSameDate(_ntpNow) ?? false;
+  }
+
+  Future<void> getPosition() async {
+
+    if (await Permission.locationWhenInUse.request().isGranted) {
+      Geolocator geolocator = Geolocator();
+
+      geolocationStatus = await geolocator.checkGeolocationPermissionStatus();
+      debugPrint('Geolocation status: ${geolocationStatus.value}');
+
+      if(geolocationStatus.value > 1 && geolocationStatus.value < 4) {
+        position = await geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.low);
+        placemark = await Geolocator().placemarkFromCoordinates(position.latitude, position.longitude);
+
+        placemark.forEach((element) {
+          debugPrint('${element.name} ${element.postalCode} ${element.country}');
+        });
+      }
+    } else if (!await Permission.locationWhenInUse.isGranted) {
+      debugPrint('Location is not granted!');
+      debugPrint('Permission for location is: ${Permission.locationWhenInUse.value}');
+    } else {
+      debugPrint('Location failed!');
+      debugPrint('Permission for location is: ${Permission.locationWhenInUse.value}');
+    }
   }
 
   Future<void> getNtpCurrentDate() async {

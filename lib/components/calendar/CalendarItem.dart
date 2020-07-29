@@ -2,16 +2,20 @@ import 'package:app/components/text/StyledText.dart';
 import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/constants/text/text_styles.dart';
-import 'package:app/models/weather/Weather.dart';
+import 'package:app/locale/Loc.dart';
+import 'package:app/models/calendar/Calendar.dart';
+import 'package:app/models/text/TextColor.dart';
+import 'package:app/models/text/TextType.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class WeatherItem extends StatelessWidget {
-  const WeatherItem({Key key, this.onTap, @required this.item})
+class CalendarItem extends StatelessWidget {
+  const CalendarItem({Key key, this.onTap, @required this.item})
       : assert(item != null),
         super(key: key);
 
   final VoidCallback onTap;
-  final Weather item;
+  final Calendar item;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,7 @@ class WeatherItem extends StatelessWidget {
           padding: EdgeInsets.all(kSpacingNormal),
           width: double.infinity,
           decoration: BoxDecoration(
-              color: kTertiaryLight,
+              color: kSecondaryDark,
               borderRadius: BorderRadius.all(Radius.circular(5.0)),
               boxShadow: [
                 BoxShadow(
@@ -34,15 +38,27 @@ class WeatherItem extends StatelessWidget {
               ]),
           child: Column(
             children: [
+
               Icon(
-                item.icon,
+                Icons.calendar_today,
                 size: kTitleLarger,
                 color: Colors.white60,
               ),
               SizedBox(
-                height: 20.0,
+                height: kSpacingSmall,
               ),
-              StyledText(item.label),
+              StyledText(
+                DateFormat('yyyy', Loc.of(context).locale.languageCode)
+                    .format(item.day),
+                color: TextColor.primary60,
+                fontWeight: FontWeight.bold,
+              ),
+              StyledText(
+                DateFormat('EEEE, dd. MMMM', Loc.of(context).locale.languageCode)
+                    .format(item.day),
+                type: TextType.subtitle,
+                fontWeight: FontWeight.bold,
+              ),
             ],
           ),
         )

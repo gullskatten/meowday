@@ -9,6 +9,7 @@ import 'package:app/views/dialogs/NoteDialog.dart';
 import 'package:app/views/dialogs/WeatherDialog.dart';
 import 'package:flutter/material.dart';
 
+import 'dialogs/CheckInDialog.dart';
 import 'dialogs/TagDialog.dart';
 
 const k_actions_button_mood = 'actions.button.mood';
@@ -19,6 +20,7 @@ const k_actions_button_picture = 'actions.button.picture';
 const k_actions_button_food = 'actions.button.food';
 const k_actions_button_weight = 'actions.button.weight';
 const k_actions_button_weather = 'actions.button.weather';
+const k_actions_button_location = 'actions.button.location';
 
 class DailyActionsNavigator extends StatelessWidget {
   @override
@@ -39,6 +41,20 @@ class DailyActionsNavigator extends StatelessWidget {
                   context: context,
                   builder: (BuildContext context) {
                     return MoodDialog();
+                  },
+                );
+              }),
+          SizedBox(
+            width: 15.0,
+          ),
+          OpaqueIconButton(
+              label: Loc.of(context).t(k_actions_button_location),
+              icon: Icons.place,
+              onPressed: () {
+                showModal<void>(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return CheckInDialog();
                   },
                 );
               }),

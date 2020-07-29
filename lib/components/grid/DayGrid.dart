@@ -2,6 +2,8 @@ import 'package:app/constants/colors/boxes.dart';
 import 'package:app/constants/spacing/spacing.dart';
 import 'package:app/locale/Loc.dart';
 import 'package:app/models/AbstractDayItem.dart';
+import 'package:app/models/calendar/Calendar.dart';
+import 'package:app/models/distance/Distance.dart';
 import 'package:app/models/note/Note.dart';
 import 'package:app/models/picture/Picture.dart';
 import 'package:app/models/steps/StepCounter.dart';
@@ -26,10 +28,18 @@ class _DayGridState extends State<DayGrid> {
   void initState() {
     super.initState();
     _list = [
+      Calendar(
+        'id-1231',
+        DateTime.now()
+      ),
       Weather(
         'q23',
         label: 'Det er ganske bra i dag!',
           icon: CustomIcons.cloud_sun,
+      ),
+      Distance(
+        'id-2015',
+        17.3
       ),
       Tag(
         'idsad',
@@ -60,11 +70,14 @@ class _DayGridState extends State<DayGrid> {
       Note('Not much happened today either, so I continued with Flutter.',
           color: kPrimaryLight,
           ),
+      Calendar('id-12312', DateTime.now().subtract(Duration(days: 1))),
+      Tag('id-323', 'Kristiansand'),
       Note("Oh, what would I do without this almanac, It is so embarrassing to forget which day it is."
           "\n\n"
           " Or what I ate yesterday.",
           color: kPrimaryNormal,
           ),
+      Distance('id-32', 3),
       Note('I never know because I never try.',
           color: kPrimaryDarkest,
           ),
@@ -72,6 +85,7 @@ class _DayGridState extends State<DayGrid> {
           title: 'Too soon!',
           color: kPrimaryNormal,
           ),
+      StepCounter('iddd-ss', 1532),
       Note('Wish I knew what to do with this app when it is finished.',
           title: 'Future',
           color: kPrimaryLight,

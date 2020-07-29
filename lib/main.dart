@@ -89,6 +89,8 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
   @override
   void initState() {
     WidgetsBinding.instance.addObserver(this);
+    context.read<CalendarProvider>().getNtpCurrentDate();
+    context.read<CalendarProvider>().getPosition();
     super.initState();
   }
 
@@ -102,6 +104,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed) {
       context.read<CalendarProvider>().getNtpCurrentDate();
+      context.read<CalendarProvider>().getPosition();
     }
   }
 
@@ -116,8 +119,6 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
             child: Column(
               children: [
                 NavbarOverview(),
-                SelectedDateView(),
-                OverallExperience(),
                 CalendarInitializationError(),
                 Consumer<CalendarProvider>(builder:
                     (BuildContext calContext,

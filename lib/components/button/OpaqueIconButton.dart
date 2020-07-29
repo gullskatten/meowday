@@ -31,8 +31,10 @@ class OpaqueIconButton extends StatelessWidget {
           SizedBox(
             width: kSpacingSmall,
           ),
-          StyledText(
-            label,
+          FittedBox(
+            child: StyledText(
+              label,
+            ),
           )
           ,
         ],

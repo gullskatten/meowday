@@ -4,21 +4,19 @@
 <dict>
 	<key></key>
 	<string></string>
-	<key>LSApplicationCategoryType</key>
-	<string></string>
 	<key>CFBundleAllowMixedLocalizations</key>
 	<true/>
-	<key>CFBundleLocalizations</key>
-	<array>
-		<string>no_NB</string>
-		<string>en</string>
-	</array>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>no_NB</string>
+		<string>en</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>app</string>
 	<key>CFBundlePackageType</key>
@@ -29,8 +27,20 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>EnableBackgroundLocationUpdates</key>
+	<true/>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthShareUsageDescription</key>
+	<string>We will sync your data with the Apple Health app to give you better insights</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>We will sync your data with the Apple Health app to give you better insights</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -50,9 +60,15 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>NSHealthShareUsageDescription</key>
-    <string>We will sync your data with the Apple Health app to give you better insights</string>
-    <key>NSHealthUpdateUsageDescription</key>
-    <string>We will sync your data with the Apple Health app to give you better insights</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+    <string>This app needs access to location to provide weather services for your location</string>
+
+     <!-- Permission options for the `camera` group -->
+    <key>NSCameraUsageDescription</key>
+    <string>This app needs access to camera to let you capture moments from your day and upload them</string>
+
+    <!-- Permission options for the `photos` group -->
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>This app needs access to your photos to let you upload photos to your day</string>
 </dict>
 </plist>

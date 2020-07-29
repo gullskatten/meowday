@@ -29,7 +29,7 @@ class _DailyTopChallengesState extends State<DailyTopChallenges> {
         },
         tappable: false,
         closedColor: blue,
-        openColor: kTertiaryLight,
+        openColor: asphalt,
         closedElevation: 0.0,
         openElevation: 0.0,
         closedShape: BeveledRectangleBorder(
@@ -43,7 +43,7 @@ class _DailyTopChallengesState extends State<DailyTopChallenges> {
               padding: EdgeInsets.all(kSpacingNormal),
               width: double.infinity,
               decoration: BoxDecoration(
-                  color: kTertiaryLight,
+                  color: asphalt,
                   boxShadow: [
                     BoxShadow(
                         color: Colors.black12,

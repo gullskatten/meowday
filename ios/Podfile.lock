@@ -2,27 +2,45 @@ PODS:
   - device_id (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - "geolocator (5.3.2+2)":
+    - Flutter
   - health (1.0.1):
+    - Flutter
+  - "location_permissions (3.0.0+1)":
+    - Flutter
+  - "permission_handler (5.0.1+1)":
     - Flutter
 
 DEPENDENCIES:
   - device_id (from `.symlinks/plugins/device_id/ios`)
   - Flutter (from `Flutter`)
+  - geolocator (from `.symlinks/plugins/geolocator/ios`)
   - health (from `.symlinks/plugins/health/ios`)
+  - location_permissions (from `.symlinks/plugins/location_permissions/ios`)
+  - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
 
 EXTERNAL SOURCES:
   device_id:
     :path: ".symlinks/plugins/device_id/ios"
   Flutter:
     :path: Flutter
+  geolocator:
+    :path: ".symlinks/plugins/geolocator/ios"
   health:
     :path: ".symlinks/plugins/health/ios"
+  location_permissions:
+    :path: ".symlinks/plugins/location_permissions/ios"
+  permission_handler:
+    :path: ".symlinks/plugins/permission_handler/ios"
 
 SPEC CHECKSUMS:
   device_id: 4a0bf078741a3eec6ba0e6cc72e786395d5991b0
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  geolocator: f7622e0e7e2a24718285b73916d60c4a54b9f5b6
   health: 44840ad4328aa5586e77bef289898bfed644a81c
+  location_permissions: 7e0f9aa0f60deb8ff93ddf0e2a164c7e8197bc94
+  permission_handler: eac8e15b4a1a3fba55b761d19f3f4e6b005d15b6
 
-PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
+PODFILE CHECKSUM: 147b9246ab5878635602332e635e0d01fdb8dc66
 
 COCOAPODS: 1.9.3

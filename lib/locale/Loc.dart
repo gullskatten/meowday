@@ -1,3 +1,4 @@
+import 'package:app/components/distance/DistanceItem.dart';
 import 'package:app/components/step/StepCounterItem.dart';
 import 'package:app/screens/ChallengesScreen.dart';
 import 'package:app/utils/greet.dart';
@@ -10,6 +11,7 @@ import 'package:app/views/NavbarOverview.dart';
 import 'package:app/views/OverallExperience.dart';
 import 'package:app/views/SelectedDateView.dart';
 import 'package:app/views/WeatherSelect.dart';
+import 'package:app/views/dialogs/CheckInDialog.dart';
 import 'package:app/views/dialogs/MoodDialog.dart';
 import 'package:app/views/dialogs/NoteDialog.dart';
 import 'package:app/views/dialogs/TagDialog.dart';
@@ -47,6 +49,8 @@ class Loc {
       k_actions_button_tag: 'Tag',
       k_actions_button_weight: 'Weight',
       k_actions_button_weather: 'Weather',
+      k_actions_button_location: 'Check-in',
+      k_checkin_dialog_title: 'New Check-in',
       k_note_section_title: 'Notes from this day',
       k_note_new_title: 'New note',
       k_note_new_placeholder: 'Write something..',
@@ -79,7 +83,13 @@ class Loc {
       k_tag_suggestion_2: 'beach',
       k_tag_suggestion_3: 'oslo',
       k_tag_suggestion_4: 'running',
-      k_step_counter_today_label: 'Steps today'
+      k_step_counter_today_label: 'Steps today',
+      k_distance_moved_today_label: 'Distance moved today',
+      k_distance_encouragement_insane: 'WOW! This is good!',
+      k_distance_encouragement_strong: 'Very good job!',
+      k_distance_encouragement_ok: 'Keep it up!',
+      k_distance_encouragement_less: 'Come on!',
+      k_distance_encouragement_none: 'Nothing registered here.',
     },
     'no': {
       k_calendar_modal_day_title: 'Velg dag',
@@ -99,6 +109,8 @@ class Loc {
       k_actions_button_food: 'Mat',
       k_actions_button_weight: 'Vekt',
       k_actions_button_weather: 'Været',
+      k_actions_button_location: 'Innsjekking',
+      k_checkin_dialog_title: 'Ny innsjekking',
       k_note_section_title: 'Notater for dagen',
       k_note_new_title: 'Nytt notat',
       k_note_new_placeholder: 'Skriv noe her..',
@@ -130,7 +142,13 @@ class Loc {
       k_tag_suggestion_2: 'strand',
       k_tag_suggestion_3: 'oslo',
       k_tag_suggestion_4: 'løping',
-      k_step_counter_today_label: 'Skritt i dag'
+      k_step_counter_today_label: 'Skritt i dag',
+      k_distance_moved_today_label: 'Distanse i bevegelse',
+      k_distance_encouragement_insane: 'HELT utrolig bra!',
+      k_distance_encouragement_strong: 'Veldig bra jobba!',
+      k_distance_encouragement_ok: 'Fortsett sånn!',
+      k_distance_encouragement_less: 'Stå på videre!',
+      k_distance_encouragement_none: 'Ingenting registrert.',
     },
   };
 

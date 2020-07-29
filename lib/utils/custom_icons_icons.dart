@@ -53,6 +53,7 @@ class CustomIcons {
   static const IconData shoe_prints = IconData(0xea98, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData super_mushroom = IconData(0xeabf, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData tentacle = IconData(0xeac8, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData trail = IconData(0xead3, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData trophy = IconData(0xf091, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData hashtag = IconData(0xf292, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData carrot = IconData(0xf787, fontFamily: _kFontFam, fontPackage: _kFontPkg);
