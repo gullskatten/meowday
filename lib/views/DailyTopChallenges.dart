@@ -28,7 +28,7 @@ class _DailyTopChallengesState extends State<DailyTopChallenges> {
           return ChallengesScreen();
         },
         tappable: false,
-        closedColor: blue,
+        closedColor: asphalt,
         openColor: asphalt,
         closedElevation: 0.0,
         openElevation: 0.0,
