@@ -1,3 +1,4 @@
+import 'package:app/components/calendar/CalendarItem.dart';
 import 'package:app/components/distance/DistanceItem.dart';
 import 'package:app/components/step/StepCounterItem.dart';
 import 'package:app/screens/ChallengesScreen.dart';
@@ -9,7 +10,6 @@ import 'package:app/views/DailyTopChallenges.dart';
 import 'package:app/views/MoodSelect.dart';
 import 'package:app/views/NavbarOverview.dart';
 import 'package:app/views/OverallExperience.dart';
-import 'package:app/views/SelectedDateView.dart';
 import 'package:app/views/WeatherSelect.dart';
 import 'package:app/views/dialogs/CheckInDialog.dart';
 import 'package:app/views/dialogs/MoodDialog.dart';

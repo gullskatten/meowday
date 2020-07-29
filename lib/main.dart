@@ -43,9 +43,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // SystemChrome.setEnabledSystemUIOverlays([]);
-    SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.white));
-
+   // SystemChrome.setSystemUIOverlayStyle(
+   //     SystemUiOverlayStyle(statusBarColor: Colors.white));
     return MaterialApp(
       title: 'Meowday',
       themeMode: ThemeMode.dark,
