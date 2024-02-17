@@ -1,15 +1,15 @@
 import 'package:animations/animations.dart';
-import 'package:app/components/button/FlatIconButton.dart';
-import 'package:app/components/note/NoteColorSelect.dart';
-import 'package:app/components/note/NoteGridSizeSelect.dart';
-import 'package:app/components/text/StyledText.dart';
-import 'package:app/constants/colors/boxes.dart';
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/constants/text/text_styles.dart';
-import 'package:app/locale/Loc.dart';
-import 'package:app/models/text/TextColor.dart';
-import 'package:app/models/text/TextSize.dart';
-import 'package:app/models/text/TextType.dart';
+import '/components/button/FlatIconButton.dart';
+import '/components/note/NoteColorSelect.dart';
+import '/components/note/NoteGridSizeSelect.dart';
+import '/components/text/StyledText.dart';
+import '/constants/colors/boxes.dart';
+import '/constants/spacing/spacing.dart';
+import '/constants/text/text_styles.dart';
+import '/locale/Loc.dart';
+import '/models/text/TextColor.dart';
+import '/models/text/TextSize.dart';
+import '/models/text/TextType.dart';
 import 'package:flutter/material.dart';
 
 const k_note_new_title = 'note.new.title';

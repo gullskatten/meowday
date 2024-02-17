@@ -1,4 +1,4 @@
-import 'package:app/locale/Loc.dart';
+import '/locale/Loc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

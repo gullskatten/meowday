@@ -1,10 +1,10 @@
-import 'package:app/components/icon/SelectableIcon.dart';
-import 'package:app/components/text/StyledText.dart';
-import 'package:app/components/transition/ScaleInTransition.dart';
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/locale/Loc.dart';
-import 'package:app/models/weather/Weather.dart';
-import 'package:app/utils/custom_icons_icons.dart';
+import '/components/icon/SelectableIcon.dart';
+import '/components/text/StyledText.dart';
+import '/components/transition/ScaleInTransition.dart';
+import '/constants/spacing/spacing.dart';
+import '/locale/Loc.dart';
+import '/models/weather/Weather.dart';
+import '/utils/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
 class WeatherSelect extends StatefulWidget {

@@ -1,10 +1,10 @@
-import 'package:app/components/text/StyledText.dart';
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/constants/text/text_styles.dart';
-import 'package:app/models/challenge/Challenge.dart';
-import 'package:app/models/text/FontFamily.dart';
-import 'package:app/models/text/TextColor.dart';
-import 'package:app/models/text/TextSize.dart';
+import '/components/text/StyledText.dart';
+import '/constants/spacing/spacing.dart';
+import '/constants/text/text_styles.dart';
+import '/models/challenge/Challenge.dart';
+import '/models/text/FontFamily.dart';
+import '/models/text/TextColor.dart';
+import '/models/text/TextSize.dart';
 import 'package:flutter/material.dart';
 
 /// Displays its integer item as 'item N' on a Card whose color is based on

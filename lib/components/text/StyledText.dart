@@ -1,6 +1,6 @@
-import 'package:app/models/text/FontFamily.dart';
-import 'package:app/models/text/TextColor.dart';
-import 'package:app/models/text/TextSize.dart';
+import '/models/text/FontFamily.dart';
+import '/models/text/TextColor.dart';
+import '/models/text/TextSize.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/text/TextType.dart';

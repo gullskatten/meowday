@@ -1,4 +1,4 @@
-import 'package:app/locale/Loc.dart';
+import '/locale/Loc.dart';
 import 'package:flutter/material.dart';
 
 const k_profile_greet_night = 'profile.greeting.night';

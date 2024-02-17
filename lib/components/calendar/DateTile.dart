@@ -1,8 +1,8 @@
-import 'package:app/components/text/StyledText.dart';
-import 'package:app/models/text/FontFamily.dart';
-import 'package:app/models/text/TextColor.dart';
-import 'package:app/models/text/TextSize.dart';
-import 'package:app/models/text/TextType.dart';
+import '/components/text/StyledText.dart';
+import '/models/text/FontFamily.dart';
+import '/models/text/TextColor.dart';
+import '/models/text/TextSize.dart';
+import '/models/text/TextType.dart';
 import 'package:flutter/material.dart';
 
 import 'MarkedDateIndicator.dart';

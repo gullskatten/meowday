@@ -1,5 +1,5 @@
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/constants/text/text_styles.dart';
+import '/constants/spacing/spacing.dart';
+import '/constants/text/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class FlatIconButton extends StatelessWidget {

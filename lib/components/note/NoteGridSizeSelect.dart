@@ -1,10 +1,10 @@
-import 'package:app/components/text/StyledText.dart';
-import 'package:app/constants/colors/boxes.dart';
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/constants/text/text_styles.dart';
-import 'package:app/models/note/NoteColor.dart';
-import 'package:app/models/note/NoteGridSize.dart';
-import 'package:app/models/text/FontFamily.dart';
+import '/components/text/StyledText.dart';
+import '/constants/colors/boxes.dart';
+import '/constants/spacing/spacing.dart';
+import '/constants/text/text_styles.dart';
+import '/models/note/NoteColor.dart';
+import '/models/note/NoteGridSize.dart';
+import '/models/text/FontFamily.dart';
 import 'package:flutter/material.dart';
 
 class NoteGridSizeSelect extends StatefulWidget {

@@ -1,7 +1,7 @@
-import 'package:app/components/text/StyledText.dart';
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/models/text/TextSize.dart';
-import 'package:app/models/text/TextType.dart';
+import '/components/text/StyledText.dart';
+import '/constants/spacing/spacing.dart';
+import '/models/text/TextSize.dart';
+import '/models/text/TextType.dart';
 import 'package:flutter/material.dart';
 
 class MonthName extends StatelessWidget {

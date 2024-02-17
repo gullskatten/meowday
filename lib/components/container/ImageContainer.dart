@@ -1,4 +1,4 @@
-import 'package:app/constants/spacing/spacing.dart';
+import '/constants/spacing/spacing.dart';
 import 'package:flutter/material.dart';
 
 class ImageContainer extends StatelessWidget {

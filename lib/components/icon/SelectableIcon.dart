@@ -1,4 +1,4 @@
-import 'package:app/components/transition/SlideWithFadeInTransition.dart';
+import '/components/transition/SlideWithFadeInTransition.dart';
 import 'package:flutter/material.dart';
 
 class SelectableIcon extends StatelessWidget {

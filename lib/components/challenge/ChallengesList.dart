@@ -1,8 +1,8 @@
-import 'package:app/components/challenge/ChallengeItem.dart';
-import 'package:app/components/list/ListHandler.dart';
-import 'package:app/constants/colors/boxes.dart';
-import 'package:app/models/challenge/Challenge.dart';
-import 'package:app/utils/custom_icons_icons.dart';
+import '/components/challenge/ChallengeItem.dart';
+import '/components/list/ListHandler.dart';
+import '/constants/colors/boxes.dart';
+import '/models/challenge/Challenge.dart';
+import '/utils/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
 class ChallengesList extends StatefulWidget {

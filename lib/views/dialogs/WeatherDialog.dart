@@ -1,11 +1,11 @@
-import 'package:app/components/text/StyledText.dart';
-import 'package:app/constants/colors/boxes.dart';
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/locale/Loc.dart';
-import 'package:app/models/text/FontFamily.dart';
-import 'package:app/models/text/TextColor.dart';
-import 'package:app/models/text/TextType.dart';
-import 'package:app/views/WeatherSelect.dart';
+import '/components/text/StyledText.dart';
+import '/constants/colors/boxes.dart';
+import '/constants/spacing/spacing.dart';
+import '/locale/Loc.dart';
+import '/models/text/FontFamily.dart';
+import '/models/text/TextColor.dart';
+import '/models/text/TextType.dart';
+import '/views/WeatherSelect.dart';
 import 'package:flutter/material.dart';
 
 const k_weather_dialog_title = 'weather.dialog.title';

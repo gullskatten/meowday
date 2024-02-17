@@ -1,4 +1,4 @@
-import 'package:app/utils/custom_icons_icons.dart';
+import '/utils/custom_icons_icons.dart';
 import 'package:flutter/material.dart';
 
 class MarkedDateIndicator extends StatelessWidget {

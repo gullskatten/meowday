@@ -1,4 +1,4 @@
-import 'package:app/constants/colors/boxes.dart';
+import '/constants/colors/boxes.dart';
 import 'package:flutter/material.dart';
 
 enum TextColor {

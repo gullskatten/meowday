@@ -1,12 +1,12 @@
-import 'package:app/components/challenge/ChallengesList.dart';
-import 'package:app/components/text/StyledText.dart';
-import 'package:app/components/transition/SlideWithFadeInTransition.dart';
-import 'package:app/constants/colors/boxes.dart';
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/constants/text/text_styles.dart';
-import 'package:app/locale/Loc.dart';
-import 'package:app/models/text/FontFamily.dart';
-import 'package:app/models/text/TextType.dart';
+import '/components/challenge/ChallengesList.dart';
+import '/components/text/StyledText.dart';
+import '/components/transition/SlideWithFadeInTransition.dart';
+import '/constants/colors/boxes.dart';
+import '/constants/spacing/spacing.dart';
+import '/constants/text/text_styles.dart';
+import '/locale/Loc.dart';
+import '/models/text/FontFamily.dart';
+import '/models/text/TextType.dart';
 import 'package:flutter/material.dart';
 
 const k_challenges_screen_title = 'challenges.screen.title';

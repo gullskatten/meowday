@@ -1,12 +1,12 @@
 import 'package:animations/animations.dart';
-import 'package:app/components/button/OpaqueIconButton.dart';
-import 'package:app/constants/colors/boxes.dart';
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/locale/Loc.dart';
-import 'package:app/utils/custom_icons_icons.dart';
-import 'package:app/views/dialogs/MoodDialog.dart';
-import 'package:app/views/dialogs/NoteDialog.dart';
-import 'package:app/views/dialogs/WeatherDialog.dart';
+import '/components/button/OpaqueIconButton.dart';
+import '/constants/colors/boxes.dart';
+import '/constants/spacing/spacing.dart';
+import '/locale/Loc.dart';
+import '/utils/custom_icons_icons.dart';
+import '/views/dialogs/MoodDialog.dart';
+import '/views/dialogs/NoteDialog.dart';
+import '/views/dialogs/WeatherDialog.dart';
 import 'package:flutter/material.dart';
 
 const k_actions_button_mood = 'actions.button.mood';

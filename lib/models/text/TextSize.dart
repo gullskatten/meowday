@@ -1,5 +1,5 @@
-import 'package:app/constants/text/text_styles.dart';
-import 'package:app/models/text/TextType.dart';
+import '/constants/text/text_styles.dart';
+import '/models/text/TextType.dart';
 
 enum TextSize { smaller, normal, bigger }
 

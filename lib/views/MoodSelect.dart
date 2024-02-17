@@ -1,9 +1,9 @@
-import 'package:app/components/icon/SelectableIcon.dart';
-import 'package:app/components/text/StyledText.dart';
-import 'package:app/components/transition/ScaleInTransition.dart';
-import 'package:app/constants/spacing/spacing.dart';
-import 'package:app/locale/Loc.dart';
-import 'package:app/models/mood/Mood.dart';
+import '/components/icon/SelectableIcon.dart';
+import '/components/text/StyledText.dart';
+import '/components/transition/ScaleInTransition.dart';
+import '/constants/spacing/spacing.dart';
+import '/locale/Loc.dart';
+import '/models/mood/Mood.dart';
 import 'package:flutter/material.dart';
 
 const k_mood_sentiment_very_dissatisfied =

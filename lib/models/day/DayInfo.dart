@@ -1,10 +1,10 @@
-import 'package:app/models/mood/Mood.dart';
-import 'package:app/models/note/Note.dart';
-import 'package:app/models/picture/Picture.dart';
-import 'package:app/models/plan/Plan.dart';
-import 'package:app/models/tag/Tag.dart';
-import 'package:app/models/weather/Weather.dart';
-import 'package:app/models/weight/Weight.dart';
+import '/models/mood/Mood.dart';
+import '/models/note/Note.dart';
+import '/models/picture/Picture.dart';
+import '/models/plan/Plan.dart';
+import '/models/tag/Tag.dart';
+import '/models/weather/Weather.dart';
+import '/models/weight/Weight.dart';
 
 class DayInfo {
   String _id;

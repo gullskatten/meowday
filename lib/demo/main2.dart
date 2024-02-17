@@ -1,12 +1,11 @@
-import 'package:app/components/calendar/Calendar.dart';
-import 'package:app/components/transition/SlideInTransition.dart';
-import 'package:app/constants/colors/boxes.dart';
-import 'package:app/views/DailyActionsNavigator.dart';
-import 'package:app/views/DailyNotes.dart';
-import 'package:app/views/DailyPlans.dart';
-import 'package:app/views/DailyTopChallenges.dart';
-import 'package:app/views/NavbarOverview.dart';
-import 'package:app/views/OverallExperience.dart';
+import '/components/transition/SlideInTransition.dart';
+import '/constants/colors/boxes.dart';
+import '/views/DailyActionsNavigator.dart';
+import '/views/DailyNotes.dart';
+import '/views/DailyPlans.dart';
+import '/views/DailyTopChallenges.dart';
+import '/views/NavbarOverview.dart';
+import '/views/OverallExperience.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -49,7 +48,7 @@ class MainApp extends StatelessWidget {
                 child: ListView(
                   physics: BouncingScrollPhysics(),
                   children: <Widget>[
-                    Calendar(),
+
                     DailyActionsNavigator(),
                     (() {
                       if(context.select((CalendarProvider value) => value.isSelectedDateToday))
